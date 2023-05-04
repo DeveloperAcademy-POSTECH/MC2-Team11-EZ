@@ -42,8 +42,8 @@
 			isa = PBXGroup;
 			children = (
 				29EDCF0A2A03416B00687162 /* ShareView.swift */,
-				29EDCF0E2A03418E00687162 /* ShareButton.swift */,
 				29EDCF0C2A03418000687162 /* EmojiCard.swift */,
+				29EDCF0E2A03418E00687162 /* ShareButton.swift */,
 			);
 			path = ShareView;
 			sourceTree = "<group>";

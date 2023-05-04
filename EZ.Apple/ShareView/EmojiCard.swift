@@ -12,14 +12,35 @@ struct EmojiCard: View {
         let date = Date()
         let dateFormatter = DateFormatter()
         
+        //월 구하기
         dateFormatter.dateFormat = "MMMM"
-        let monthEG = dateFormatter.string(from: date)
+        let month = dateFormatter.string(from: date)
         
+        //일 구하기
         dateFormatter.dateFormat = "d"
         let day = dateFormatter.string(from: date)
-        
+        let dayInt = Int(dateFormatter.string(from: date))
+    
+        //요일 구하기
         dateFormatter.dateFormat = "eeee"
         let weekDay = dateFormatter.string(from: date)
+        
+        //ordinalNumber 구하기
+        var ordinalNumbers : String = ""
+        switch (dayInt) {
+        case 1, 21, 31:
+            ordinalNumbers = "st"
+            break;
+        case 2, 22:
+            ordinalNumbers = "nd"
+            break;
+        case 3, 23:
+            ordinalNumbers = "rd"
+            break;
+        default:
+            ordinalNumbers = "th"
+            break;
+        }
         
         return Rectangle()
             .frame(maxWidth: .infinity)
@@ -30,7 +51,7 @@ struct EmojiCard: View {
             .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
             .overlay{
                 VStack(spacing: 0){
-                    Text("\(weekDay), \(monthEG) \(day)rd")
+                    Text("\(weekDay), \(month) \(day)\(ordinalNumbers)")
                         .font(.system(size: 12))
                         .foregroundColor(Color("ColorGray100"))
                         .padding(.bottom, 45.6)

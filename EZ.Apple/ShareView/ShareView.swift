@@ -21,7 +21,7 @@ struct ShareView: View {
                     .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
    
             }.padding(.horizontal, 20)
-        }.background(Image("ColorGradationBackground"))
+        }.background(Image("ImageBackground"))
     }
 }
 

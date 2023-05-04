@@ -32,7 +32,7 @@ struct EmojiCard: View {
                 VStack(spacing: 0){
                     Text("\(weekDay), \(monthEG) \(day)rd")
                         .font(.system(size: 12))
-                        .foregroundColor(Color("ColorSubColor"))
+                        .foregroundColor(Color("ColorGray100"))
                         .padding(.bottom, 45.6)
                     
                     Image("ImgCharacter")

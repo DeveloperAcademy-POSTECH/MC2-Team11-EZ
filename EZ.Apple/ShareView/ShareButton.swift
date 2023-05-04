@@ -18,7 +18,7 @@ struct ShareButton: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 20)
-                    .foregroundColor(Color("ColorSystemFont"))
+                    .foregroundColor(Color("ColorGray200"))
                 
             }
             

@@ -22,6 +22,8 @@ struct MainView: View {
     @State private var numberOfRotations: Int = 0 // 룰렛 회전 수
     @State private var engine: CHHapticEngine?
     
+    @State private var isShowImage = true // 드래그 코치마크 상태 변수
+    @State private var isShowDrage = true // 드래그 코치마크 애니메이션 상태 변수
     
     func setupHapticEngine() throws {
         engine = try CHHapticEngine()
@@ -81,6 +83,11 @@ struct MainView: View {
                     
                 } //: Vstack
             } //: Zstack
+            
+            Spacer()
+            
+            CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
+            
         } //: Navigation
     }
 }

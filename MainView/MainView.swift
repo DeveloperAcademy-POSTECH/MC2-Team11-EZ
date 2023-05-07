@@ -14,15 +14,42 @@ struct MainView: View {
     // MARK: - Body
     var body: some View {
         
-        VStack{
-            HStack {
-                VStack {
+        NavigationView {
+            ZStack {
+                
+                Image("ImgBackground")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(width: 2780)
+                
+                VStack(spacing: 130){
+                    HStack(spacing: 69) {
+                        VStack(alignment: .leading) {
+                            
+                            //실시간 날짜 구현
+                            
+                            Image("UserName")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 134, height: 30)
+                            
+                            Image("UserGreetingText")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 227, height: 24)
+                        
+                        } //: Vstack
+                        NavigationLink(destination: EmptyView()) {
+                            Image("ImgButton")
+                        }
+                    } //: Hstack
+                    .padding(.horizontal, 20)
                     
-                    Image("UserName")
+                    Spacer()
                     
                 } //: Vstack
-            } //: Hstack
-        } //: Vstack
+            } //: Zstack
+        } //: Navigation
     }
 }
 
@@ -30,5 +57,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            
     }
 }

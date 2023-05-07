@@ -14,6 +14,7 @@ class DateFormat: ObservableObject {
     init(){
     let date = Date()
     let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
     
     
     //월 구하기

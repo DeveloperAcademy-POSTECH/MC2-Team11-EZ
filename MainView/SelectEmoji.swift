@@ -52,12 +52,11 @@ struct SelectEmoji: View {
                 Image("ImgState\(number / 10)")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 159.2, height: 170)
-                    .opacity(0.3)
+                    .frame(width: 121.2, height: 132)
                     .offset(y: isAnimating ? 5 : -5)
                     .animation(.easeOut(duration: 1)
                         .repeatForever(), value: isAnimating)
-                    .blur(radius: 10)
+                    .blur(radius: 15)
                 
                 
                 Image("ImgState\(number / 10)")
@@ -82,7 +81,6 @@ struct SelectEmoji: View {
             
             
         }
-        
     }
 }
     

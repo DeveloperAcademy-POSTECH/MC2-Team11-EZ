@@ -40,37 +40,40 @@ struct MainView: View {
                     .ignoresSafeArea()
                     .frame(width: 2780)
                 
-                VStack(spacing: 130){
-                    HStack(spacing: 69) {
-                        VStack(alignment: .leading) {
+                VStack {
+                    VStack(spacing: 130){
+                        HStack(spacing: 69) {
+                            VStack(alignment: .leading) {
+                                
+                                //실시간 날짜 구현
+                                
+                                Image("UserName")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 134, height: 30)
+                                
+                                Image("UserGreetingText")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 227, height: 24)
                             
-                            //실시간 날짜 구현
-                            
-                            Image("UserName")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 134, height: 30)
-                            
-                            Image("UserGreetingText")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 227, height: 24)
+                            } //: Vstack
+                            NavigationLink(destination: EmptyView()) {
+                                Image("ImgButton")
+                            }
+                        } //: Hstack
+                        .padding(.horizontal, 20)
                         
-                        } //: Vstack
-                        NavigationLink(destination: EmptyView()) {
-                            Image("ImgButton")
-                        }
-                    } //: Hstack
-                    .padding(.horizontal, 20)
+                        SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji)
+                    }//: Vstack
                     
-                    SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji)
-                    
-                    Spacer()
-                    
-                    CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
-                    
-                    DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations)
+                        Spacer()
+                        
+                        CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
+                        DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations)
 
+                        
+                    
                 } //: Vstack
             } //: Zstack
            

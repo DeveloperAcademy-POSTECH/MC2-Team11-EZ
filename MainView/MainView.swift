@@ -6,11 +6,43 @@
 //
 
 import SwiftUI
+import CoreHaptics
 
 struct MainView: View {
     // MARK: -Propertites
     
+    @State private var isShowEmoji = true // 이모티콘 상태 변수
+    @State private var isShowText = false // 숫자 표시 상태 변수
+    @State private var isShowResultEmoji = false //결과 이모지 상태 변수
+    @State private var isTextToggle = true // 토글 텍스트 상태 변수
+    @State private var isAnimating = false // 애니메이션 상태 변수
     
+    @State private var handleRotation: Double = 0 // 핸들 로테이트 변수
+    @State private var number: Int = 50 // 룰렛 초기 값
+    @State private var numberOfRotations: Int = 0 // 룰렛 회전 수
+    @State private var engine: CHHapticEngine?
+    
+    
+    func setupHapticEngine() throws {
+        engine = try CHHapticEngine()
+        try engine?.start()
+    }
+    
+    // 햅틱 피드백 재생 함수
+    func playHapticFeedback() throws {
+        guard CHHapticEngine.capabilitiesForHardware().supportsHaptics else {
+            return
+        }
+        
+        let intensity = CHHapticEventParameter(parameterID: .hapticIntensity, value: 1.0)
+        let sharpness = CHHapticEventParameter(parameterID: .hapticSharpness, value: 1.0)
+        let event = CHHapticEvent(eventType: .hapticTransient, parameters: [intensity, sharpness], relativeTime: 0)
+        
+        let pattern = try CHHapticPattern(events: [event], parameters: [])
+        let player = try engine?.makePlayer(with: pattern)
+        try player?.start(atTime: 0)
+    }
+
     // MARK: - Body
     var body: some View {
         
@@ -45,7 +77,7 @@ struct MainView: View {
                     } //: Hstack
                     .padding(.horizontal, 20)
                     
-                    Spacer()
+                    SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji)
                     
                 } //: Vstack
             } //: Zstack

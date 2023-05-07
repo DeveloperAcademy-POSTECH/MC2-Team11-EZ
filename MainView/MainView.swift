@@ -15,9 +15,14 @@ struct MainView: View {
     var body: some View {
         
         VStack{
-            
+            HStack {
+                VStack {
+                    
+                    Image("UserName")
+                    
+                } //: Vstack
+            } //: Hstack
         } //: Vstack
-        
     }
 }
 

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SelectEmoji: View {
 
+    // MARK: - Properties
     @Binding var isShowEmoji: Bool
     @Binding var isAnimating: Bool
     @Binding var isShowText: Bool
@@ -16,6 +17,7 @@ struct SelectEmoji: View {
     @Binding  var isTextToggle: Bool
     @Binding var isShowResultEmoji: Bool
     
+    // MARK: - Body
     var body: some View {
         ZStack{
             
@@ -67,7 +69,7 @@ struct SelectEmoji: View {
                         .repeatForever(), value: isAnimating)
 
             
-            }
+            }//: Zstack
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                     isAnimating = true
@@ -79,12 +81,13 @@ struct SelectEmoji: View {
 
                 
             
-                }
+                }//: Zstack
+        
             }
         }
     
 
-
+// MARK: - Properties
 struct SelectEmoji_Previews: PreviewProvider {
     static var previews: some View {
         SelectEmoji(isShowEmoji: .constant(true), isAnimating: .constant(false), isShowText: .constant(false), number: .constant(50), isTextToggle: .constant(true), isShowResultEmoji: .constant(false))

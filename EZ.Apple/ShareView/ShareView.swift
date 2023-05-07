@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ShareView: View {
+    @StateObject var dateFormat = DateFormat()
+    
     var body: some View {
         ZStack(alignment: .top){
             VStack(spacing: 0){
                 ShareButton()
                     
-                EmojiCard()
+                EmojiCard(dateFormat: DateFormat())
                 
                 Text("Touch any screen to skip the detail")
                     .font(.system(size: 14))

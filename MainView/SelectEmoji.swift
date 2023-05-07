@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SelectEmoji: View {
-
+    
     // MARK: - Properties
     @Binding var isShowEmoji: Bool
     @Binding var isAnimating: Bool
@@ -49,7 +49,7 @@ struct SelectEmoji: View {
                     .opacity(0.4)
                 
                 
-                Image("image\(number / 10)")
+                Image("ImgState\(number / 10)")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 159.2, height: 170)
@@ -58,33 +58,33 @@ struct SelectEmoji: View {
                     .animation(.easeOut(duration: 1)
                         .repeatForever(), value: isAnimating)
                     .blur(radius: 10)
-               
-
-                Image("image\(number / 10)")
+                
+                
+                Image("ImgState\(number / 10)")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 121.2, height: 132)
                     .offset(y: isAnimating ? 5 : -5)
                     .animation(.easeOut(duration: 1)
                         .repeatForever(), value: isAnimating)
-
-            
-            }//: Zstack
+                
+                
+            }
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                     isAnimating = true
                 })
             }
-
+            
             .opacity(isShowResultEmoji ? 1 : 0)
             .scaleEffect(isShowResultEmoji ? 1 : 0.5)
-
-                
             
-                }//: Zstack
-        
-            }
+            
+            
         }
+        
+    }
+}
     
 
 // MARK: - Properties

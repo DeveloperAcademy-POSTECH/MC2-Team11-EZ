@@ -11,7 +11,7 @@ struct CoachMark: View {
     var body: some View {
         
         if isShowImage {
-            Image("drag")
+            Image("ImgDrag")
                 .onAppear {
                     withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
                         isShowDrag.toggle()

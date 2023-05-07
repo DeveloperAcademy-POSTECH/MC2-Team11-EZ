@@ -49,9 +49,6 @@ struct DragWheel: View {
              
                 .foregroundColor(Color.white.opacity(0.3))
                 .frame(width: 500, height: 500)
-
-
-            
             
             Circle() // 눈금
                 .strokeBorder(Color.white, lineWidth: 0.1)

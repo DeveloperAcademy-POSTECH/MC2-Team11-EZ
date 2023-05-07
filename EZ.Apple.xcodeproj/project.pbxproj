@@ -12,7 +12,7 @@
 		29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0E2A03418E00687162 /* ShareButton.swift */; };
 		29EDCF142A078C5D00687162 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF132A078C5D00687162 /* Extension.swift */; };
 		29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF152A078C8A00687162 /* DateFormat.swift */; };
-		29EDCF182A07915800687162 /* matchedGeometryEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF172A07915800687162 /* matchedGeometryEffect.swift */; };
+		29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF192A0799C700687162 /* EmojiCardDetail.swift */; };
 		CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */; };
 		CABAB7BE29FFD1E800FA86A6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAB7BD29FFD1E800FA86A6 /* ContentView.swift */; };
 		CABAB7C029FFD1EA00FA86A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */; };
@@ -25,7 +25,7 @@
 		29EDCF0E2A03418E00687162 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		29EDCF132A078C5D00687162 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		29EDCF152A078C8A00687162 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
-		29EDCF172A07915800687162 /* matchedGeometryEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchedGeometryEffect.swift; sourceTree = "<group>"; };
+		29EDCF192A0799C700687162 /* EmojiCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCardDetail.swift; sourceTree = "<group>"; };
 		CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZ.Apple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZ_AppleApp.swift; sourceTree = "<group>"; };
 		CABAB7BD29FFD1E800FA86A6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,9 +48,9 @@
 			isa = PBXGroup;
 			children = (
 				29EDCF0A2A03416B00687162 /* ShareView.swift */,
-				29EDCF172A07915800687162 /* matchedGeometryEffect.swift */,
 				29EDCF0C2A03418000687162 /* EmojiCard.swift */,
 				29EDCF0E2A03418E00687162 /* ShareButton.swift */,
+				29EDCF192A0799C700687162 /* EmojiCardDetail.swift */,
 			);
 			path = ShareView;
 			sourceTree = "<group>";
@@ -172,11 +172,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */,
+				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
 				CABAB7BE29FFD1E800FA86A6 /* ContentView.swift in Sources */,
 				29EDCF142A078C5D00687162 /* Extension.swift in Sources */,
 				CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */,
-				29EDCF182A07915800687162 /* matchedGeometryEffect.swift in Sources */,
 				29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */,
 				29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */,
 			);

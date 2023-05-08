@@ -12,7 +12,7 @@ struct ShareButton: View {
     var body: some View {
         HStack{
             Button {
-                print("asdf")
+                shareScreenshot()
             } label: {
                 Image(systemName: "square.and.arrow.up")
                     .resizable()
@@ -27,6 +27,17 @@ struct ShareButton: View {
         .padding(.trailing, 4)
         .padding(EdgeInsets(top: 24, leading: 0, bottom: 73, trailing: 4))
     }
+    
+    func shareScreenshot() {
+            if let window = UIApplication.shared.windows.first {
+                // Capture screenshot of the view
+                let screenshot = window.rootViewController?.view.asImage()
+
+                // Share screenshot using UIActivityViewController
+                let activityViewController = UIActivityViewController(activityItems: [screenshot!], applicationActivities: nil)
+                UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+            }
+        }
 }
 
 struct ShareButton_Previews: PreviewProvider {

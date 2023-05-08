@@ -23,3 +23,13 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
+// MARK: - 공유하기 버튼 클릭시, 해당 뷰 스크린샷 Extension
+extension UIView {
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+        return renderer.image { rendererContext in
+            layer.render(in: rendererContext.cgContext)
+        }
+    }
+}

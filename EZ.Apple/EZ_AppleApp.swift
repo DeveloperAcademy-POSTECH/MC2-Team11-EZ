@@ -11,7 +11,7 @@ import SwiftUI
 struct EZ_AppleApp: App {
     var body: some Scene {
         WindowGroup {
-            ShareView()
+            ShareView(placeholder: "(How’s it going lah? (in 180 characters)")
         }
     }
 }

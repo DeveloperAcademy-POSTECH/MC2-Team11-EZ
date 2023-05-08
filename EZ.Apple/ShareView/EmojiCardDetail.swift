@@ -10,76 +10,138 @@ import SwiftUI
 struct EmojiCardDetail: View {
     var dateFormat : DateFormat
     var namespace : Namespace.ID
+    
+    @State var text: String = ""
+    @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
     @Binding var show : Bool
     
     var body: some View {
         ZStack{
             ScrollView{
-                GeometryReader{ proxy in
-                    let scrollY = proxy.frame(in: .named("scroll")).minY
-                    
-                    Rectangle()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 360)
-                        .cornerRadius(36, corners: .bottomRight)
-                        .cornerRadius(36, corners: .bottomLeft)
-                        .foregroundColor(.white)
-                        .opacity(0.3)
-                        .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                        .matchedGeometryEffect(id: "background", in: namespace)
-                        .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
-                    
-
-                        .overlay{
-                            VStack(spacing: 0){
-                                Spacer()
+                VStack(spacing: 0){
+                    GeometryReader{ proxy in
+                        let scrollY = proxy.frame(in: .named("scroll")).minY
+                        
+                        VStack(spacing: 0){
+                            Rectangle()
                                 
-                                Text(dateFormat.dateFormat)
-                                    .font(.system(size: 12))
-                                    .foregroundColor(Color("ColorGray100"))
+                                .frame(maxWidth: .infinity)
+                                .frame(height: 360)
+                                .cornerRadius(36, corners: .bottomRight)
+                                .cornerRadius(36, corners: .bottomLeft)
+                                .foregroundColor(.white)
+                                .opacity(0.3)
+                                .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
+                                .matchedGeometryEffect(id: "background", in: namespace)
+                                .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
+                                .border(.black)
                                 
-                                    .padding(.bottom, 33)
-                                    .matchedGeometryEffect(id: "dateFormat", in: namespace)
-                                
-                                ZStack {
-                                    Image("ImgCharacter")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 103)
-                                        .blur(radius: 20)
-                                        .padding(.bottom, 30)
-                                        .matchedGeometryEffect(id: "stateImageShadow", in: namespace)
-                                    
-                                    Image("ImgCharacter")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 103)
-                                        .padding(.bottom, 30)
-                                        .matchedGeometryEffect(id: "stateImage", in: namespace)
-                                    
-                                    
+                                .overlay{
+                                    VStack(spacing: 0){
+                                        Spacer()
+                                        
+                                        Text(dateFormat.dateFormat)
+                                            .font(.system(size: 12))
+                                            .foregroundColor(Color("ColorGray100"))
+                                        
+                                            .padding(.bottom, 33)
+                                            .matchedGeometryEffect(id: "dateFormat", in: namespace)
+                                        
+                                        ZStack {
+                                            Image("ImgCharacter")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 103)
+                                                .blur(radius: 20)
+                                                .padding(.bottom, 30)
+                                                .matchedGeometryEffect(id: "stateImageShadow", in: namespace)
+                                            
+                                            Image("ImgCharacter")
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(width: 103)
+                                                .padding(.bottom, 30)
+                                                .matchedGeometryEffect(id: "stateImage", in: namespace)
+                                        }
+                                        
+                                        Text("34")
+                                            .font(.system(size: 40))
+                                            .fontWeight(.black)
+                                            .matchedGeometryEffect(id: "stateNumber", in: namespace)
+                                        
+                                        
+                                        Text("Feeling down")
+                                            .font(.system(size: 14))
+                                            .fontWeight(.medium)
+                                            .padding(.bottom, 30)
+                                            .matchedGeometryEffect(id: "stateMessage", in: namespace)
+                                    }
+                                    .offset(y: scrollY > 0 ? -scrollY : 0)
+                                    .scaleEffect(scrollY > 0 ? scrollY / 1000 + 1 : 1)
+                                    //                            .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
                                 }
-                                
-                                Text("34")
-                                    .font(.system(size: 40))
-                                    .fontWeight(.black)
-                                    .matchedGeometryEffect(id: "stateNumber", in: namespace)
-                                
-                                
-                                Text("Feeling down")
-                                    .font(.system(size: 14))
-                                    .fontWeight(.medium)
-                                    .padding(.bottom, 30)
-                                    .matchedGeometryEffect(id: "stateMessage", in: namespace)
-                            }
-                            .offset(y: scrollY > 0 ? -scrollY : 0)
-                            .scaleEffect(scrollY > 0 ? scrollY / 1000 + 1 : 1)
-//                            .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
+                                .padding(.bottom, 30)
+                        
+                            
                         }
-                    
+                        
+                    }
+                    .frame(height: 360)
+
+
+
+                    ZStack(alignment: .topLeading) {
+                        Rectangle()
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 200)
+                            .cornerRadius(15)
+                            .foregroundColor(.white)
+                            .overlay{
+                                TextEditor(text: $text)
+                                    .font(.custom("SF-Pro", size: 12))
+                                    .frame(maxWidth: .infinity)
+                                    .frame(minHeight: 160)
+                                    .padding(.horizontal, 30)
+                                    .multilineTextAlignment(.leading)
+                                    .lineSpacing(4)
+                                    .padding(.vertical, 30)
+                                    
+
+                            
+                            }
+                        
+
+                        if text.isEmpty {
+                            Text(placeholder)
+                                .font(.custom("SF-Pro", size: 14))
+                                .lineLimit(10)
+                                .foregroundColor(Color.primary.opacity(0.25))
+                                .padding(.top, 29)
+                                .padding(.leading, 30)
+                        }
+                    }.padding(.horizontal, 20)
+                    .padding(.top, 20)
+                    .border(.blue)
+
+                    Button {
+                        print("댓츠올")
+                    } label: {
+                        Text("That’s all")
+                            .font(.custom("SF-Pro", size: 20))
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 60)
+                            //.padding(EdgeInsets(top: 20, leading: 130, bottom: 20, trailing: 130))
+                            .background(Color("ColorAccentBlue"))
+                            .cornerRadius(24)
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.top, 180)
                 }
+            
                 
-            }
+                
+            }.ignoresSafeArea(.all)
             
             Button {
                 withAnimation(.spring(response: 0.5, dampingFraction: 0.5))
@@ -98,7 +160,9 @@ struct EmojiCardDetail: View {
             .ignoresSafeArea()
             .border(.red)
             
-        }.ignoresSafeArea(.all)
+        }.background(Image("ImgBackground")
+            .ignoresSafeArea(.all)
+        )
         
         
     }

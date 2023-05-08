@@ -58,8 +58,8 @@
 		29EDCF122A078B9C00687162 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				29EDCF132A078C5D00687162 /* Extension.swift */,
 				29EDCF152A078C8A00687162 /* DateFormat.swift */,
+				29EDCF132A078C5D00687162 /* Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";

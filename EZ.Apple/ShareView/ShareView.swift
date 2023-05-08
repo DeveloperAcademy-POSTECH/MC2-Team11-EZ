@@ -10,6 +10,7 @@ import SwiftUI
 struct ShareView: View {
     @StateObject var dateFormat = DateFormat()
     @State var show = false
+    var placeholder : String
     @Namespace var namespace
     
     
@@ -19,25 +20,31 @@ struct ShareView: View {
                 if !show {
                     ShareButton()
                     
-                    EmojiCard(dateFormat: DateFormat(), namespace: namespace)
-                    
-                    Text("Touch any screen to skip the detail")
-                        .font(.system(size: 15))
-                        .foregroundColor(Color(.white))
-                        .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
+                    VStack{
+                        EmojiCard(dateFormat: DateFormat(), namespace: namespace)
+                        
+                        Text("Touch any screen to skip the detail")
+                            .font(.system(size: 15))
+                            .foregroundColor(Color(.white))
+                            .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
+                        Spacer()
+                    }
+                    .overlay(
+                        Rectangle()
+                            .opacity(0)
+                            .contentShape(Rectangle())
+                            .frame(height: 700, alignment: .bottom)
+
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.5)){
+                                    show.toggle()
+                                }
+                            }
+                    )
                     
                 }
             }.padding(.horizontal, 20)
-                .overlay{
-                    Rectangle()
-                        .opacity(0)
-                        .contentShape(Rectangle())
-                        .onTapGesture {
-                            withAnimation(.spring(response: 0.5, dampingFraction: 0.5)){
-                                show.toggle()
-                            }
-                        }
-                }
+                
             
             
             if show {
@@ -53,6 +60,6 @@ struct ShareView: View {
 
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-        ShareView()
+        ShareView(placeholder: "(How’s it going lah? (in 180 characters)")
     }
 }

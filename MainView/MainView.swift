@@ -35,7 +35,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 
-                Image("ImgBackGround")
+                Image("ImgBackground")
                     .resizable()
                     .ignoresSafeArea()
                     .frame(width: 2780)

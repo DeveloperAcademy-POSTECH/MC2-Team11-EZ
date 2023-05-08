@@ -18,6 +18,7 @@ struct DragWheel: View {
     @Binding var isShowResultEmoji: Bool
     @Binding var isTextToggle: Bool
     @Binding var numberOfRotations: Int
+    @Binding var isShowImage: Bool
     
     @State private var engine: CHHapticEngine?
     
@@ -131,6 +132,9 @@ struct DragWheel: View {
 
         .frame(width: radius * 2, height: radius * 2)
         .padding(.bottom, -350)
+        .onTapGesture {
+            isShowImage = false
+        }
     }
 }
 

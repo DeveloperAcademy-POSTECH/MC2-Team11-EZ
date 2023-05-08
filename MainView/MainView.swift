@@ -35,7 +35,7 @@ struct MainView: View {
         NavigationView {
             ZStack {
                 
-                Image("ImgBackground")
+                Image("ImgBackGround")
                     .resizable()
                     .ignoresSafeArea()
                     .frame(width: 2780)
@@ -70,7 +70,7 @@ struct MainView: View {
                         Spacer()
                         
                         CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
-                        DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations)
+                    DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage)
 
                         
                     

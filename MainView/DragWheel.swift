@@ -135,10 +135,3 @@ struct DragWheel: View {
         .padding(.bottom, -350)
     }
 }
-
-//// MARK: - Preview
-//struct DragWheel_Previews: PreviewProvider {
-//    static var previews: some View {
-//        DragWheel(number: <#Binding<Int>#>, radius: <#Binding<CGFloat>#>, handleRotation: <#Binding<Int>#>, isShowEmoji: <#Binding<Bool>#>, isShowText: <#Binding<Bool>#>, isShowResultEmoji: <#Binding<Bool>#>, isTextToggle: <#Binding<Bool>#>, numberOfRotations: <#Binding<Int>#>)
-//    }
-//}

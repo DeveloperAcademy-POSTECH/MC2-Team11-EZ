@@ -124,7 +124,9 @@ struct EmojiCardDetail: View {
                     .border(.blue)
 
                     Button {
-                        print("댓츠올")
+                        PersistenceController.coreDm.createState(id:UUID(),state_number: "42", state_message: "fuck lah", state_image: "ImgState7", state_description: "내 이름은 플린, 탐정이죠.", created_at: Date(), date_format: dateFormat.dateFormat)
+                        
+                        print(PersistenceController.coreDm.readAllUser())
                     } label: {
                         Text("That’s all")
                             .font(.custom("SF-Pro", size: 20))
@@ -133,7 +135,7 @@ struct EmojiCardDetail: View {
                             .frame(height: 60)
                             //.padding(EdgeInsets(top: 20, leading: 130, bottom: 20, trailing: 130))
                             .background(Color("ColorAccentBlue"))
-                            .cornerRadius(24)
+                            
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 180)

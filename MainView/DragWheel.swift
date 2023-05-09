@@ -95,6 +95,7 @@ struct DragWheel: View {
                         isShowEmoji = false
                         isShowText = true
                         isShowResultEmoji = false
+                        isShowImage = false
                     }
                     
                     isTextToggle.toggle()
@@ -132,9 +133,6 @@ struct DragWheel: View {
 
         .frame(width: radius * 2, height: radius * 2)
         .padding(.bottom, -350)
-        .onTapGesture {
-            isShowImage = false
-        }
     }
 }
 

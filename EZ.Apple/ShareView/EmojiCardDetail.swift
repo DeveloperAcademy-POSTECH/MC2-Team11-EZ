@@ -124,7 +124,7 @@ struct EmojiCardDetail: View {
                     .border(.blue)
 
                     Button {
-                        PersistenceController.coreDm.createState(id:UUID(),state_number: "42", state_message: "fuck lah", state_image: "ImgState7", state_description: "내 이름은 플린, 탐정이죠.", created_at: Date(), date_format: dateFormat.dateFormat)
+                        PersistenceController.coreDm.createState(id:UUID(),state_number: "99", state_message: "Happy Happy", state_image: "ImgState9", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
                         
                         print(PersistenceController.coreDm.readAllUser())
                     } label: {

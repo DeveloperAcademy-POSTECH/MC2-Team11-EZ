@@ -54,3 +54,18 @@ class DateFormat: ObservableObject {
     }
 }
 
+
+class MyViewController: UIViewController {
+    
+    let persistenceController = PersistenceController.coreDm
+    let dateFormatter = DateFormatter()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let startDate = dateFormatter.date(from: "2023-05-01")!
+        let endDate = dateFormatter.date(from: "2023-05-06")!
+        let statements = persistenceController.fetchStatementForDate(startDate: startDate, endDate: endDate)
+        // statements 배열을 사용하여 원하는 방식으로 데이터를 표시하거나 처리합니다.
+    }
+}

@@ -64,7 +64,26 @@ class PersistenceController {
         
     }
     
+    func fetchStatementForDate(startDate: Date, endDate: Date) -> [Statement] {
+        print(startDate)
+        let fetchRequest: NSFetchRequest<Statement> = Statement.fetchRequest()
+        let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", startDate as NSDate, endDate as NSDate)
+        fetchRequest.predicate = predicate
+        
+        do {
+            let statements = try context.fetch(fetchRequest)
+            return statements
+        } catch {
+            print("Error fetching statements: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+    
+    
 }
+
+
 
 
 

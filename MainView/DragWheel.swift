@@ -48,8 +48,9 @@ struct DragWheel: View {
         ZStack {
             Circle() // 큰 핸들
              
-                .foregroundColor(Color.white.opacity(0.3))
-                .frame(width: 500, height: 500)
+                .foregroundColor(Color.white.opacity(0.8))
+                .frame(width: 630, height: 630)
+                .shadow(color: .gray.opacity(0.5), radius: 20, x: 0, y: 1)
             
             Circle() // 눈금
                 .strokeBorder(Color.white, lineWidth: 0.1)
@@ -58,24 +59,24 @@ struct DragWheel: View {
                 let angle = Double(i - 50) * 3.6
                 let marker = Rectangle()
                     .fill(Color.white)
-                    .frame(width: 1, height: 10)
+                    .frame(width: i == number ? 2 : 1, height: i == number ? 20 : 10)
                     .offset(x: 0, y: -radius + 5)
                     .rotationEffect(.degrees(angle))
                 
                 if i % 5 == 0 {
                     Text("\(i)")
 //                                    .font(.subheadline)
-                        .font(.system(size: i == number ? 25 : 15))
+                        .font(.system(size: i == number ? 16 : 12))
                         .animation(.easeIn(duration: 0.1))
                         .foregroundColor(.white)
-                        .offset(x: 0, y: i == number ?  -radius + 30 : -radius + 25)
+                        .offset(x: 0, y: i == number ?  -radius + 35 : -radius + 30)
                         .rotationEffect(.degrees(angle))
-                        .shadow(color: .gray.opacity(0.6), radius: 3, x: 0, y: 1)
                     
                     Rectangle()
                         .fill(Color.white)
-                        .frame(width: 2, height: 15)
-                        .offset(x: 0, y: -radius + 7)
+                        .frame(width: i == number ? 4 : 2, height: i == number ? 56 : 52)
+
+                        .offset(x: 0, y: -radius - 12)
                         .rotationEffect(.degrees(angle))
                 } else {
                     marker
@@ -83,10 +84,12 @@ struct DragWheel: View {
             }
             
             Circle() // 작은 핸들
-                .foregroundColor(Color.white.opacity(0.4))
-                .frame(width: 400, height: 400)
+                .foregroundColor(Color.white.opacity(0.8))
+                .frame(width: 394, height: 394)
+                .shadow(color: .gray.opacity(0.5), radius: 20, x: 0, y: 1)
         }
         .rotationEffect(Angle(degrees: handleRotation), anchor: .center)// 핸들 세트
+        
         .gesture(
             
             DragGesture()
@@ -103,12 +106,13 @@ struct DragWheel: View {
                     
                     // 핸들 이미지의 회전 각도를 갱신
                     let delta = value.translation.width // 드래그하는 동안의 움직인 거리
+                    //print("delta -> \(delta)")
                     handleRotation += Double(delta / 100) // 움직인 거리에 따라 핸들을 회전시킴
+                    //print("handleRotation -> \(handleRotation)")
                     numberOfRotations = Int(50 + handleRotation / 3.6) % 100
+                    //print("numberOfRotations -> \(numberOfRotations)")
                     number = numberOfRotations > 0 ? 100 - numberOfRotations : -numberOfRotations
-                
-                    print(number % 10)
-                    
+            
                     // 핸들을 돌릴 때 진동 주기
                     do {
                         try playHapticFeedback()

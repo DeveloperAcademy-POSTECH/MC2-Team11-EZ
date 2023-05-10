@@ -39,13 +39,16 @@ struct MainView: View {
                     .resizable()
                     .ignoresSafeArea()
                     .frame(width: 2780)
+                    
                 
-                VStack {
-                    VStack(spacing: 130){
+                VStack(spacing: 30) {
+                    VStack(spacing: 117){
                         HStack(spacing: 69) {
                             VStack(alignment: .leading) {
                                 
-                                //실시간 날짜 구현
+                                Text("Sunday, Apr 23rd")//실시간 날짜 구현
+                                    .font(.system(size: 14))
+                                    .foregroundColor(.gray)
                                 
                                 Image("UserName")
                                     .resizable()
@@ -63,18 +66,24 @@ struct MainView: View {
                             }
                         } //: Hstack
                         .padding(.horizontal, 20)
-                        
+                
                         SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji)
                     }//: Vstack
+
+                        Spacer()
+                    
+                        CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
+                        .padding(.bottom, 30)
+                        .frame(height: 80)
                     
                         Spacer()
                         
-                        CoachMark(isShowImage: $isShowImage, isShowDrag: $isShowDrage)
-                    DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage)
+                        DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage)
 
                         
                     
                 } //: Vstack
+                .padding(.top, 30)
             } //: Zstack
            
         } //: Navigation

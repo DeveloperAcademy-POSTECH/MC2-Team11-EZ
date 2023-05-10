@@ -27,9 +27,6 @@ struct SelectEmoji: View {
                 .frame(width: 121.2, height: 132)
                 .opacity(isShowEmoji ? 1 : 0)
                 .scaleEffect(isShowEmoji ? 1 : 0.5)
-                .offset(y: isAnimating ? 5 : -5)
-                .animation(.easeOut(duration: 1)
-                    .repeatForever(), value: isAnimating)
             
             
             Text("\(number)")

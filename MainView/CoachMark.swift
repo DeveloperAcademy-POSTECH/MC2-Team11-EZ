@@ -11,7 +11,11 @@ struct CoachMark: View {
     var body: some View {
         
         if isShowImage {
-            Image("ImgDrag")
+            Image("ImgBIgIndicator")
+                .transition(.scale)
+                .offset(y: isShowDrag ? 5 : -5)
+                .animation(.easeOut(duration: 1)
+                    .repeatForever(), value: isShowDrag)
                 .onAppear {
                     withAnimation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: true)) {
                         isShowDrag.toggle()
@@ -19,6 +23,13 @@ struct CoachMark: View {
                 }
                 .opacity(isShowDrag ? 0.2 : 1)
             
+        } else
+        {
+            withAnimation(Animation.easeInOut(duration: 2)) {
+                Image("ImgSmallIndicator")
+                    .transition(.scale)
+                    .offset(y: 35)
+            }
         }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ShareView: View {
     @StateObject var dateFormat = DateFormat()
     @State var show = false
+    @Binding var number: Int
     var placeholder : String
     @Namespace var namespace
     
@@ -21,7 +22,7 @@ struct ShareView: View {
                     ShareButton()
                     
                     VStack{
-                        EmojiCard(dateFormat: DateFormat(), namespace: namespace)
+                        EmojiCard(dateFormat: DateFormat(), namespace: namespace, number: number)
                         
                         Text("Touch any screen to skip the detail")
                             .font(.system(size: 15))
@@ -48,7 +49,7 @@ struct ShareView: View {
             
             
             if show {
-                EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, show: $show)
+                EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: number, show: $show)
                 
             }
         }.background(Image("ImgBackground")
@@ -60,6 +61,6 @@ struct ShareView: View {
 
 struct ShareView_Previews: PreviewProvider {
     static var previews: some View {
-        ShareView(placeholder: "(How’s it going lah? (in 180 characters)")
+        ShareView(number: .constant(30), placeholder: "(How’s it going lah? (in 180 characters)")
     }
 }

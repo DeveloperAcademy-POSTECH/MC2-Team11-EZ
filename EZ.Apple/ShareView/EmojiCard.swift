@@ -10,6 +10,7 @@ import SwiftUI
 struct EmojiCard: View {
     var dateFormat : DateFormat
     var namespace: Namespace.ID
+    var number: Int
     
     var body: some View {
         Rectangle()
@@ -47,7 +48,7 @@ struct EmojiCard: View {
                     }
                         
                     
-                    Text("34")
+                    Text("\(number)")
                         .font(.system(size: 40))
                         .fontWeight(.black)
                         .matchedGeometryEffect(id: "stateNumber", in: namespace)
@@ -70,7 +71,7 @@ struct EmojiCard_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        EmojiCard(dateFormat: DateFormat(), namespace: namespace)
+        EmojiCard(dateFormat: DateFormat(), namespace: namespace, number: 34)
     }
 }
 

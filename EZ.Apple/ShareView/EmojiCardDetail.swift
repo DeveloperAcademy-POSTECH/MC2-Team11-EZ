@@ -10,10 +10,12 @@ import SwiftUI
 struct EmojiCardDetail: View {
     var dateFormat : DateFormat
     var namespace : Namespace.ID
+    var number: Int
     
     @State var text: String = ""
     @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
     @Binding var show : Bool
+    
     
     var body: some View {
         ZStack{
@@ -64,7 +66,7 @@ struct EmojiCardDetail: View {
                                                 .matchedGeometryEffect(id: "stateImage", in: namespace)
                                         }
                                         
-                                        Text("34")
+                                        Text("\(number)")
                                             .font(.system(size: 40))
                                             .fontWeight(.black)
                                             .matchedGeometryEffect(id: "stateNumber", in: namespace)
@@ -124,7 +126,7 @@ struct EmojiCardDetail: View {
                     .border(.blue)
 
                     Button {
-                        PersistenceController.coreDm.createState(id:UUID(),state_number: "99", state_message: "Happy Happy", state_image: "ImgState9", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
+                        PersistenceController.coreDm.createState(id:UUID(),state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
                         
                         print(PersistenceController.coreDm.readAllUser())
                     } label: {
@@ -174,6 +176,6 @@ struct EmojiCardDetail_Previews: PreviewProvider {
     @Namespace static var namespace
     
     static var previews: some View {
-        EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, show : .constant(true) )
+        EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: 34, show : .constant(true) )
     }
 }

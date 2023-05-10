@@ -12,10 +12,10 @@
   </a>
 </div>
 
+<div> 안녕하세여 </div>
 
 <h2>🧐 Preview</h2>
 <img src="https://user-images.githubusercontent.com/20789760/235419131-b47ccaeb-b63f-4ac2-9acc-bb757f37c905.png" />
-
 <div align="center">
   ➿
   상세설명 작성예정
@@ -30,7 +30,6 @@
 ➿
 상세설명 작성예정
 ➿
-
 <br>
 
 <h2>🔩 Tech & Skills</h2>

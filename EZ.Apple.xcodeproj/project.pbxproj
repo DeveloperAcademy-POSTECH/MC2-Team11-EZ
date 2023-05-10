@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255D82A0932CF002C099A /* Model.xcdatamodeld */; };
+		1D9255E22A0936D4002C099A /* Statement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E12A0936D4002C099A /* Statement+CoreDataProperties.swift */; };
+		1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */; };
+		1D9255EA2A093A7E002C099A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E92A093A7E002C099A /* PersistenceController.swift */; };
+		1D9255EC2A0A2E1A002C099A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255EB2A0A2E1A002C099A /* test.swift */; };
+		29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0A2A03416B00687162 /* ShareView.swift */; };
+		29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0C2A03418000687162 /* EmojiCard.swift */; };
+		29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0E2A03418E00687162 /* ShareButton.swift */; };
+		29EDCF142A078C5D00687162 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF132A078C5D00687162 /* Extension.swift */; };
+		29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF152A078C8A00687162 /* DateFormat.swift */; };
+		29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF192A0799C700687162 /* EmojiCardDetail.swift */; };
 		3B25DEC62A07B7BB00C5D1DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC52A07B7BB00C5D1DD /* MainView.swift */; };
 		3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */; };
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
@@ -17,6 +28,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D9255D92A0932CF002C099A /* CoreDataEz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataEz.xcdatamodel; sourceTree = "<group>"; };
+		1D9255E12A0936D4002C099A /* Statement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statement+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statement+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1D9255E92A093A7E002C099A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		1D9255EB2A0A2E1A002C099A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		29EDCF0A2A03416B00687162 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		29EDCF0C2A03418000687162 /* EmojiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCard.swift; sourceTree = "<group>"; };
+		29EDCF0E2A03418E00687162 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
+		29EDCF132A078C5D00687162 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		29EDCF152A078C8A00687162 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		29EDCF192A0799C700687162 /* EmojiCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCardDetail.swift; sourceTree = "<group>"; };
 		3B25DEC52A07B7BB00C5D1DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmoji.swift; sourceTree = "<group>"; };
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
@@ -38,6 +60,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D9255E82A093880002C099A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1D9255D82A0932CF002C099A /* Model.xcdatamodeld */,
+				1D9255E12A0936D4002C099A /* Statement+CoreDataProperties.swift */,
+				1D9255E92A093A7E002C099A /* PersistenceController.swift */,
+				1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		29EDCF092A03414300687162 /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				29EDCF0A2A03416B00687162 /* ShareView.swift */,
+				29EDCF0C2A03418000687162 /* EmojiCard.swift */,
+				29EDCF0E2A03418E00687162 /* ShareButton.swift */,
+				29EDCF192A0799C700687162 /* EmojiCardDetail.swift */,
+				1D9255EB2A0A2E1A002C099A /* test.swift */,
+			);
+			path = ShareView;
+			sourceTree = "<group>";
+		};
+		29EDCF122A078B9C00687162 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				29EDCF152A078C8A00687162 /* DateFormat.swift */,
+				29EDCF132A078C5D00687162 /* Extension.swift */,
+			);
+			path = Extensions;
 		3B25DEC42A07B79F00C5D1DD /* MainView */ = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +122,10 @@
 			isa = PBXGroup;
 			children = (
 				CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */,
+				CABAB7BD29FFD1E800FA86A6 /* ContentView.swift */,
+				29EDCF122A078B9C00687162 /* Extensions */,
+				29EDCF092A03414300687162 /* ShareView */,
+				1D9255E82A093880002C099A /* Model */,
 				CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */,
 				CABAB7C129FFD1EA00FA86A6 /* Preview Content */,
 			);
@@ -154,11 +210,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */,
+				1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */,
+				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
+				1D9255EC2A0A2E1A002C099A /* test.swift in Sources */,
+				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
+				1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */,
+				CABAB7BE29FFD1E800FA86A6 /* ContentView.swift in Sources */,
+				29EDCF142A078C5D00687162 /* Extension.swift in Sources */,
 				3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */,
 				3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */,
 				3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */,
 				3B25DEC62A07B7BB00C5D1DD /* MainView.swift in Sources */,
 				CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */,
+				1D9255E22A0936D4002C099A /* Statement+CoreDataProperties.swift in Sources */,
+				29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */,
+				29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */,
+				1D9255EA2A093A7E002C099A /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +427,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1D9255D82A0932CF002C099A /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1D9255D92A0932CF002C099A /* CoreDataEz.xcdatamodel */,
+			);
+			currentVersion = 1D9255D92A0932CF002C099A /* CoreDataEz.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CABAB7B029FFD1E800FA86A6 /* Project object */;
 }

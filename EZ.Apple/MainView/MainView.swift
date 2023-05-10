@@ -26,7 +26,7 @@ struct MainView: View {
     @State private var isShowDrage = true // 드래그 코치마크 애니메이션 상태 변수
     
     @State private var radius: CGFloat = 250 //휠 크기
-    
+    let dateFormat: DateFormat
 
 
     // MARK: - Body
@@ -43,10 +43,10 @@ struct MainView: View {
                 
                 VStack(spacing: 30) {
                     VStack(spacing: 117){
-                        HStack(spacing: 69) {
+                        HStack(spacing: 53) {
                             VStack(alignment: .leading) {
                                 
-                                Text("Sunday, Apr 23rd")//실시간 날짜 구현
+                                Text(dateFormat.dateFormat)
                                     .font(.system(size: 14))
                                     .foregroundColor(.gray)
                                 
@@ -63,6 +63,7 @@ struct MainView: View {
                             } //: Vstack
                             NavigationLink(destination: EmptyView()) {
                                 Image("ImgButton")
+                                    .frame(width: 54, height: 54)
                             }
                         } //: Hstack
                         .padding(.horizontal, 20)
@@ -93,7 +94,7 @@ struct MainView: View {
 // MARK: - Preview
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        MainView(dateFormat: DateFormat())
             
     }
 }

@@ -11,7 +11,39 @@ extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
+    
+    
+    func getSateMessage(number : Int) -> String {
+        switch number {
+        case 1..<10:
+            return "Fuck Lah.."
+        case 11..<20:
+            return "Exhausted.."
+        case 21..<30:
+            return "Bad.."
+        case 31..<40:
+            return "Not Good.."
+        case 41..<50:
+            return "Okay ~"
+        case 51..<60:
+            return "Good ~"
+        case 61..<70:
+            return "Very Good ~"
+        case 71..<80:
+            return "Great!"
+        case 81..<90:
+            return "Awesome!"
+        case 91..<100:
+            return "すばらしい！"
+        default:
+            return "State Message Error"
+                    }
+    }
+
+
 }
+
+
 
 struct RoundedCorner: Shape {
 

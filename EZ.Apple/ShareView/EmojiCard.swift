@@ -31,7 +31,7 @@ struct EmojiCard: View {
                     
                     
                     ZStack {
-                        Image("ImgCharacter")
+                        Image("ImgState\(number/10)")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 140)
@@ -39,7 +39,7 @@ struct EmojiCard: View {
                             .blur(radius: 20)
                             .matchedGeometryEffect(id: "stateImageShadow", in: namespace)
                         
-                        Image("ImgCharacter")
+                        Image("ImgState\(number/10)")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 140)
@@ -53,7 +53,8 @@ struct EmojiCard: View {
                         .fontWeight(.black)
                         .matchedGeometryEffect(id: "stateNumber", in: namespace)
                     
-                    Text("Feeling down")
+                    //Text("Feeling down")
+                    Text(getSateMessage(number: number))
                         .font(.system(size: 14))
                         .fontWeight(.medium)
                         .padding(.bottom, 38)

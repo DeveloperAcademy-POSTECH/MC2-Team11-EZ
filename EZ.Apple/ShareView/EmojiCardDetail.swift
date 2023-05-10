@@ -50,7 +50,7 @@ struct EmojiCardDetail: View {
                                             .matchedGeometryEffect(id: "dateFormat", in: namespace)
                                         
                                         ZStack {
-                                            Image("ImgCharacter")
+                                            Image("ImgState\(number/10)")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)
@@ -58,7 +58,7 @@ struct EmojiCardDetail: View {
                                                 .padding(.bottom, 30)
                                                 .matchedGeometryEffect(id: "stateImageShadow", in: namespace)
                                             
-                                            Image("ImgCharacter")
+                                            Image("ImgState\(number/10)")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)

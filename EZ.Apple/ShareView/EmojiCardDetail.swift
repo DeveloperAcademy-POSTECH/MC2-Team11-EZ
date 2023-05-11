@@ -12,6 +12,7 @@ struct EmojiCardDetail: View {
     var namespace : Namespace.ID
     var number: Int
     
+    @State var tag:Int? = nil
     @State var text: String = ""
     @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
     @Binding var show : Bool
@@ -19,6 +20,10 @@ struct EmojiCardDetail: View {
     
     var body: some View {
         ZStack{
+            NavigationLink(destination: EmptyView(),tag: 1, selection: self.$tag) {
+                EmptyView()
+            }
+            
             ScrollView{
                 VStack(spacing: 0){
                     GeometryReader{ proxy in
@@ -125,9 +130,11 @@ struct EmojiCardDetail: View {
                     .padding(.top, 20)
                     .border(.blue)
 
+                    // 네비게이션 tag 추가
                     Button {
                         PersistenceController.coreDm.createState(id:UUID(),state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
                         
+                        self.tag = 1
                         print(PersistenceController.coreDm.readAllUser())
                     } label: {
                         Text("That’s all")

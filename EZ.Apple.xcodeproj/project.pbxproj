@@ -12,12 +12,16 @@
 		1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */; };
 		1D9255EA2A093A7E002C099A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E92A093A7E002C099A /* PersistenceController.swift */; };
 		1D9255EC2A0A2E1A002C099A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255EB2A0A2E1A002C099A /* test.swift */; };
+		295162EF2A0C94B7002E4C5D /* RecordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295162EE2A0C94B7002E4C5D /* RecordBox.swift */; };
 		29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0A2A03416B00687162 /* ShareView.swift */; };
 		29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0C2A03418000687162 /* EmojiCard.swift */; };
 		29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0E2A03418E00687162 /* ShareButton.swift */; };
 		29EDCF142A078C5D00687162 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF132A078C5D00687162 /* Extension.swift */; };
 		29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF152A078C8A00687162 /* DateFormat.swift */; };
 		29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF192A0799C700687162 /* EmojiCardDetail.swift */; };
+		29F0CDCB2A0D0BDD00EC6AE7 /* SwipableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */; };
+		29F0CDCD2A0D0C3D00EC6AE7 /* CalenderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */; };
+		29F0CDCF2A0D0D9400EC6AE7 /* RecordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */; };
 		3B25DEC62A07B7BB00C5D1DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC52A07B7BB00C5D1DD /* MainView.swift */; };
 		3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */; };
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
@@ -34,12 +38,16 @@
 		1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1D9255E92A093A7E002C099A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		1D9255EB2A0A2E1A002C099A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
+		295162EE2A0C94B7002E4C5D /* RecordBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBox.swift; sourceTree = "<group>"; };
 		29EDCF0A2A03416B00687162 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		29EDCF0C2A03418000687162 /* EmojiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCard.swift; sourceTree = "<group>"; };
 		29EDCF0E2A03418E00687162 /* ShareButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareButton.swift; sourceTree = "<group>"; };
 		29EDCF132A078C5D00687162 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		29EDCF152A078C8A00687162 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		29EDCF192A0799C700687162 /* EmojiCardDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCardDetail.swift; sourceTree = "<group>"; };
+		29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableView.swift; sourceTree = "<group>"; };
+		29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderBox.swift; sourceTree = "<group>"; };
+		29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordList.swift; sourceTree = "<group>"; };
 		3B25DEC52A07B7BB00C5D1DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmoji.swift; sourceTree = "<group>"; };
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
@@ -109,6 +117,10 @@
 			isa = PBXGroup;
 			children = (
 				3B4EAEE82A0B77F300B045A2 /* RecordView.swift */,
+				29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */,
+				295162EE2A0C94B7002E4C5D /* RecordBox.swift */,
+				29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */,
+				29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */,
 			);
 			path = RecordView;
 			sourceTree = "<group>";
@@ -225,6 +237,8 @@
 				29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */,
 				1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */,
 				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
+				29F0CDCD2A0D0C3D00EC6AE7 /* CalenderBox.swift in Sources */,
+				29F0CDCB2A0D0BDD00EC6AE7 /* SwipableView.swift in Sources */,
 				3B4EAEE92A0B77F300B045A2 /* RecordView.swift in Sources */,
 				1D9255EC2A0A2E1A002C099A /* test.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
@@ -232,6 +246,7 @@
 				29EDCF142A078C5D00687162 /* Extension.swift in Sources */,
 				3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */,
 				3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */,
+				295162EF2A0C94B7002E4C5D /* RecordBox.swift in Sources */,
 				3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */,
 				3B25DEC62A07B7BB00C5D1DD /* MainView.swift in Sources */,
 				CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */,
@@ -239,6 +254,7 @@
 				29EDCF0F2A03418E00687162 /* ShareButton.swift in Sources */,
 				29EDCF162A078C8A00687162 /* DateFormat.swift in Sources */,
 				1D9255EA2A093A7E002C099A /* PersistenceController.swift in Sources */,
+				29F0CDCF2A0D0D9400EC6AE7 /* RecordList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

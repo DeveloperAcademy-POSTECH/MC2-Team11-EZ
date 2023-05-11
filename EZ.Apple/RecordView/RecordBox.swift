@@ -11,6 +11,7 @@ struct RecordBox: View {
     var body: some View {
         
         
+        
         Rectangle()
             .frame(maxWidth: .infinity)
             .frame(height: 100)

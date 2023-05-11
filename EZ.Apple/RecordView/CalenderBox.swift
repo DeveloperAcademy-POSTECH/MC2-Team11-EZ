@@ -48,6 +48,8 @@ struct CalenderBox: View {
                     }
                     .padding(.top, 14)
                     
+                    test()
+                    
                     Divider()
                         .padding(.top, 20)
                     

@@ -5,6 +5,8 @@ struct ChartView: View {
     // MARK: - Properties
     
     let number = 3
+    @State var tag:Int? = nil
+    @State var isShownSheet = false
     
     let stateData = [StateData(year: 2023, month: 5, day: 10, state: 23),
                      StateData(year: 2023, month: 5, day: 11, state: 40),
@@ -18,79 +20,84 @@ struct ChartView: View {
 
     // MARK: - Body
     var body: some View {
-        ScrollView {
-            VStack(spacing: 0) {
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Your statement graph for")
-                            .font(.system(size: 16))
+        
+        ZStack {
+                VStack(spacing: 0) {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Your statement graph for")
+                                .font(.system(size: 16))
+                                
+                                .foregroundColor(.gray)
+                            Text("4.23 - 4.29")
+                                .font(.system(size: 32))
+                                .fontWeight(.bold)
                             
-                            .foregroundColor(.gray)
-                        Text("4.23 - 4.29")
-                            .font(.system(size: 32))
-                            .fontWeight(.bold)
+                        } //: Vstack
                         
-                    } //: Vstack
+                        Spacer()
+                        
+                        NavigationLink(destination: MainView(dateFormat: DateFormat())) {
+                                Image("ImgBackBtn")}
+                    } //: Hstack
+                    .frame(maxWidth: .infinity)
+                    .padding(.horizontal, 24)
                     
-                    Spacer()
+                    Rectangle()
+                        .stroke(lineWidth: 0.2)
+                        .frame(height: 1)
+                        .padding(.top, 9)
                     
-                    NavigationLink(destination: MainView(dateFormat: DateFormat())) {
-                            Image("button")
+                    ZStack{
+                        Chart(stateData) { element in
+                            LineMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
+                            ).lineStyle(.init(lineWidth: 3, lineCap: .round, lineJoin: .round))
+                                .interpolationMethod(.monotone)
                         }
-                } //: Hstack
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 24)
-                
-                Rectangle()
-                    .stroke(lineWidth: 0.2)
-                    .frame(height: 1)
-                    .padding(.top, 9)
-                
-                ZStack{
-                    Chart(stateData) { element in
-                        LineMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
-                        ).lineStyle(.init(lineWidth: 3, lineCap: .round, lineJoin: .round))
-                            .interpolationMethod(.monotone)
-                    }
-                    .chartYScale(domain: 0...110)
-                    .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
-                    
-                    
-                    
+                        .chartYScale(domain: 0...110)
+                        .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
+                        
+                        
+                        
 
-                    Chart(stateData) { element in
-                        PointMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
-                        )
+                        Chart(stateData) { element in
+                            PointMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
+                            )
 
-                        .annotation(position: .overlay, alignment: .center) {
-                            VStack() {
-                                Button(action: {
-                                    print("Click")
-                                }, label: {
-                                    Image("ImgState1")
-                                        .resizable()
-                                        .frame(width: 20, height: 20)
-                                })
+                            .annotation(position: .overlay, alignment: .center) {
+                                VStack() {
+                                    Button(action: {
+                                        print("Click")
+                                    }, label: {
+                                        Image("ImgState1")
+                                            .resizable()
+                                            .frame(width: 20, height: 20)
+                                    })
+                                }
+                                .symbolRenderingMode(.multicolor)
+                                .imageScale(.large)
+                                
                             }
-                            .symbolRenderingMode(.multicolor)
-                            .imageScale(.large)
-                            
+                            .symbolSize(0)
                         }
-                        .symbolSize(0)
+                        .chartYScale(domain: 0...110)
                     }
-                    .chartYScale(domain: 0...110)
-                }
-                .frame(height: 573)
-                .padding(.horizontal, 20)
-                
-                Rectangle()
-                    .stroke(lineWidth: 0.2)
-                    .frame(height: 1)
-                    .padding(.top, 9)
-            } //: Vstack
+                    .frame(height: 573)
+                    .padding(.horizontal, 20)
+                    
+                    Rectangle()
+                        .stroke(lineWidth: 0.2)
+                        .frame(height: 1)
+                        .padding(.top, 9)
+                    
+                        
+                } //: Vstack
+            .ignoresSafeArea()
+            .padding(.top, 24)
+            
+            SwipableView()
+            
         }
-        .ignoresSafeArea()
-        .padding(.top, 24)
         .navigationBarHidden(true)
     }
 }

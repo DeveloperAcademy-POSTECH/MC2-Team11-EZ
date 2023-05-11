@@ -22,6 +22,7 @@
 		29F0CDCB2A0D0BDD00EC6AE7 /* SwipableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */; };
 		29F0CDCD2A0D0C3D00EC6AE7 /* CalenderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */; };
 		29F0CDCF2A0D0D9400EC6AE7 /* RecordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */; };
+		29F0CDD12A0D14D900EC6AE7 /* ListUpTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F0CDD02A0D14D900EC6AE7 /* ListUpTest.swift */; };
 		3B25DEC62A07B7BB00C5D1DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC52A07B7BB00C5D1DD /* MainView.swift */; };
 		3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */; };
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
@@ -48,6 +49,7 @@
 		29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipableView.swift; sourceTree = "<group>"; };
 		29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderBox.swift; sourceTree = "<group>"; };
 		29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordList.swift; sourceTree = "<group>"; };
+		29F0CDD02A0D14D900EC6AE7 /* ListUpTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListUpTest.swift; sourceTree = "<group>"; };
 		3B25DEC52A07B7BB00C5D1DD /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmoji.swift; sourceTree = "<group>"; };
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				3B4EAEE82A0B77F300B045A2 /* RecordView.swift */,
 				29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */,
+				29F0CDD02A0D14D900EC6AE7 /* ListUpTest.swift */,
 				295162EE2A0C94B7002E4C5D /* RecordBox.swift */,
 				29F0CDCE2A0D0D9400EC6AE7 /* RecordList.swift */,
 				29F0CDCC2A0D0C3D00EC6AE7 /* CalenderBox.swift */,
@@ -242,6 +245,7 @@
 				3B4EAEE92A0B77F300B045A2 /* RecordView.swift in Sources */,
 				1D9255EC2A0A2E1A002C099A /* test.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
+				29F0CDD12A0D14D900EC6AE7 /* ListUpTest.swift in Sources */,
 				1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */,
 				29EDCF142A078C5D00687162 /* Extension.swift in Sources */,
 				3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */,

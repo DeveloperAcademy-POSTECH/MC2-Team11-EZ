@@ -20,8 +20,7 @@ struct EmojiCardDetail: View {
     
     var body: some View {
         ZStack{
-            NavigationLink(destination: EmptyView(),tag: 1, selection: self.$tag) {
-                EmptyView()
+            NavigationLink(destination: ChartView(), tag: 1, selection: self.$tag) {
             }
             
             ScrollView{

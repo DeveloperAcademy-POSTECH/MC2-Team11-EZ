@@ -53,7 +53,6 @@ class PersistenceController {
     }
     
     func readAllUser() -> [Statement] {
-        
         let fetchRequest: NSFetchRequest<Statement> = Statement.fetchRequest()
         
         do{
@@ -65,9 +64,22 @@ class PersistenceController {
     }
     
     func fetchStatementForDate(startDate: Date, endDate: Date) -> [Statement] {
-        print(startDate)
         let fetchRequest: NSFetchRequest<Statement> = Statement.fetchRequest()
-        let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", startDate as NSDate, endDate as NSDate)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let startString = dateFormatter.string(from: startDate)
+        let endString = dateFormatter.string(from: endDate)
+        let startDateNSDate = startDate as NSDate
+        let endDateNSDate = endDate as NSDate
+        
+        print(startDate)
+        print(endDate)
+
+        print(startString)
+        print(endString)
+        
+        let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", startDateNSDate, endDateNSDate)
+        
         fetchRequest.predicate = predicate
         
         do {
@@ -78,7 +90,7 @@ class PersistenceController {
             return []
         }
     }
-
+    
     
     
 }

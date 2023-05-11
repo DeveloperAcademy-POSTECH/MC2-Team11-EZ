@@ -11,8 +11,8 @@ import SwiftUI
 struct EZ_AppleApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView(dateFormat: DateFormat())
-
+//            MainView(dateFormat: DateFormat())
+            test()
         }
     }
 }

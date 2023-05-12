@@ -51,6 +51,7 @@ struct ShareView: View {
             
             if show {
                 EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: number, show: $show)
+                    .statusBarHidden(true)
                 
             }
         }

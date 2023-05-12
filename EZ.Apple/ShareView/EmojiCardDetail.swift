@@ -170,7 +170,9 @@ struct EmojiCardDetail: View {
             .ignoresSafeArea()
             .border(.red)
             
-        }.background(Image("ImgBackground")
+        }
+        .navigationBarBackButtonHidden()
+        .background(Image("ImgBackground")
             .ignoresSafeArea(.all)
         )
         

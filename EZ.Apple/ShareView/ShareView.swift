@@ -35,7 +35,6 @@ struct ShareView: View {
                             .opacity(0)
                             .contentShape(Rectangle())
                             .frame(height: 700, alignment: .bottom)
-
                             .onTapGesture {
                                 withAnimation(.spring(response: 0.5, dampingFraction: 0.5)){
                                     show.toggle()

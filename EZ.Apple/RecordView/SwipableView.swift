@@ -39,6 +39,7 @@ struct SwipableView: View {
                 VStack(spacing: 0){
                     // Handle
                     VStack(spacing: 0){
+                        VStack{
                             Capsule()
                                 .foregroundColor(Color.black.opacity(0.5))
                                 .opacity(0.5)
@@ -48,6 +49,9 @@ struct SwipableView: View {
                             Text("15 Records")
                                 .font(.system(size: 16, weight: .semibold))
                                 .padding(.top, 16)
+                        }
+                        .gesture(dragGesture)
+//                        .border(.red) //탭 제스쳐 위치
                         
                     
                         if isShowCal {
@@ -77,21 +81,21 @@ struct SwipableView: View {
                                                     .foregroundColor(Color("ColorDate"))
                                                 //    .matchedGeometryEffect(id: "startDay", in: namespace)
                                                     .padding(.trailing, 48)
-                                                
+                                               
                                                 Capsule()
                                                     .foregroundColor(Color.black.opacity(0.5))
                                                     .opacity(0.5)
                                                     .frame(width: 18, height: 4)
                                                   //  .matchedGeometryEffect(id: "capsule", in: namespace)
                                                     .padding(.trailing, 48)
-                                                
+                                               
                                                 Text("4.29")
                                                     .font(.system(size: 30, weight: .bold))
                                                     .foregroundColor(Color("ColorDate"))
                                                   //  .matchedGeometryEffect(id: "endDay", in: namespace)
                                             }
                                             
-                                                
+                                               
                                         }
                                     }
                             }
@@ -121,28 +125,28 @@ struct SwipableView: View {
                                                     .foregroundColor(Color("ColorGray100"))
                                                 //    .matchedGeometryEffect(id: "dateQuestion", in: namespace)
                                                 //    .padding(.bottom, 1)
-                                                
+                                               
                                                 HStack(spacing: 0){
                                                     Text("4.23")
                                                         .font(.system(size: 30, weight: .bold))
                                                         .foregroundColor(Color("ColorDate"))
                                                     //    .matchedGeometryEffect(id: "startDay", in: namespace)
                                                         .padding(.trailing, 48)
-                                                    
+                                                   
                                                     Capsule()
                                                         .foregroundColor(Color.black.opacity(0.5))
                                                         .opacity(0.5)
                                                         .frame(width: 18, height: 4)
                                                       //  .matchedGeometryEffect(id: "capsule", in: namespace)
                                                         .padding(.trailing, 48)
-                                                    
+                                                   
                                                     Text("4.29")
                                                         .font(.system(size: 30, weight: .bold))
                                                         .foregroundColor(Color("ColorDate"))
                                                       //  .matchedGeometryEffect(id: "endDay", in: namespace)
                                                 }
-                                                
-                                                    
+                                               
+                                                   
                                             }
                                         }
                                 }
@@ -159,7 +163,7 @@ struct SwipableView: View {
                     }
                     .padding(.bottom, 30)
                    // .background(Color.blue)
-                    .gesture(dragGesture)
+                    
                     
                     
                     

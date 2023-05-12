@@ -30,12 +30,12 @@ struct CalenderBox: View {
                     HStack(spacing: 0){
                         Text("4.23")
                             .font(.system(size: 30, weight: .bold))
-                            .foregroundColor(Color("ColorAccentBlue"))
+                            .foregroundColor(Color("ColorLightGray100"))
                         //    .matchedGeometryEffect(id: "startDay", in: namespace)
                             .padding(.trailing, 48)
                         
                         Capsule()
-                            .foregroundColor(Color.black.opacity(0.5))
+                            .foregroundColor(Color("ColorGray100"))
                             .opacity(0.5)
                             .frame(width: 18, height: 4)
                       //      .matchedGeometryEffect(id: "capsule", in: namespace)
@@ -43,15 +43,16 @@ struct CalenderBox: View {
                         
                         Text("4.29")
                             .font(.system(size: 30, weight: .bold))
-                            .foregroundColor(Color("ColorDate"))
+                            .foregroundColor(Color("ColorGray100"))
                        //     .matchedGeometryEffect(id: "endDay", in: namespace)
                     }
                     .padding(.top, 14)
                     
-                    test()
-                    
                     Divider()
                         .padding(.top, 20)
+                    
+
+                    test()
                     
                     Spacer()
                     

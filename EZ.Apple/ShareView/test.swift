@@ -19,14 +19,14 @@ struct test: View {
 
     var body: some View {
         VStack {
-            List {
-                ForEach(statements, id: \.self) { statement in
-                    let _ = print(statement)
-
-                    Text(statement.state_number ?? "")
-                    Text(statement.state_description ?? "")
-                }
-            }
+//            List {
+//                ForEach(statements, id: \.self) { statement in
+//                    let _ = print(statement)
+//
+//                    Text(statement.state_number ?? "")
+//                    Text(statement.state_description ?? "")
+//                }
+//            }
             ScrollView {
                 VStack {
                     

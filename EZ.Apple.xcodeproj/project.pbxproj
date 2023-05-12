@@ -22,6 +22,9 @@
 		3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */; };
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
 		3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DECB2A07B80700C5D1DD /* CoachMark.swift */; };
+		CA45A6222A0C8F4E009B5A01 /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA45A6212A0C8F4E009B5A01 /* StateData.swift */; };
+		CA45A6252A0C981E009B5A01 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = CA45A6242A0C981E009B5A01 /* SwiftUICharts */; };
+		CA826AEC2A0C74F100EE6C88 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA826AEB2A0C74F100EE6C88 /* ChartView.swift */; };
 		CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */; };
 		CABAB7C029FFD1EA00FA86A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */; };
 		CABAB7C329FFD1EA00FA86A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7C229FFD1EA00FA86A6 /* Preview Assets.xcassets */; };
@@ -43,6 +46,8 @@
 		3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmoji.swift; sourceTree = "<group>"; };
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
 		3B25DECB2A07B80700C5D1DD /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
+		CA45A6212A0C8F4E009B5A01 /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
+		CA826AEB2A0C74F100EE6C88 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZ.Apple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZ_AppleApp.swift; sourceTree = "<group>"; };
 		CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA45A6252A0C981E009B5A01 /* SwiftUICharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +109,15 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
+		CA826AE82A0BAC2100EE6C88 /* GraphView */ = {
+			isa = PBXGroup;
+			children = (
+				CA826AEB2A0C74F100EE6C88 /* ChartView.swift */,
+				CA45A6212A0C8F4E009B5A01 /* StateData.swift */,
+			);
+			path = GraphView;
+			sourceTree = "<group>";
+		};
 		CABAB7AF29FFD1E800FA86A6 = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +139,7 @@
 			children = (
 				CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */,
 				3B25DEC42A07B79F00C5D1DD /* MainView */,
+				CA826AE82A0BAC2100EE6C88 /* GraphView */,
 				29EDCF122A078B9C00687162 /* Extensions */,
 				29EDCF092A03414300687162 /* ShareView */,
 				1D9255E82A093880002C099A /* Model */,
@@ -157,6 +173,9 @@
 			dependencies = (
 			);
 			name = EZ.Apple;
+			packageProductDependencies = (
+				CA45A6242A0C981E009B5A01 /* SwiftUICharts */,
+			);
 			productName = EZ.Apple;
 			productReference = CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */;
 			productType = "com.apple.product-type.application";
@@ -185,6 +204,9 @@
 				Base,
 			);
 			mainGroup = CABAB7AF29FFD1E800FA86A6;
+			packageReferences = (
+				CA45A6232A0C981E009B5A01 /* XCRemoteSwiftPackageReference "ChartView" */,
+			);
 			productRefGroup = CABAB7B929FFD1E800FA86A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,9 +237,11 @@
 				1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */,
 				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
 				1D9255EC2A0A2E1A002C099A /* test.swift in Sources */,
+				CA826AEC2A0C74F100EE6C88 /* ChartView.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
 				1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */,
 				29EDCF142A078C5D00687162 /* Extension.swift in Sources */,
+				CA45A6222A0C8F4E009B5A01 /* StateData.swift in Sources */,
 				3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */,
 				3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */,
 				3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */,
@@ -427,6 +451,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CA45A6232A0C981E009B5A01 /* XCRemoteSwiftPackageReference "ChartView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/ChartView";
+			requirement = {
+				kind = exactVersion;
+				version = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CA45A6242A0C981E009B5A01 /* SwiftUICharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CA45A6232A0C981E009B5A01 /* XCRemoteSwiftPackageReference "ChartView" */;
+			productName = SwiftUICharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1D9255D82A0932CF002C099A /* Model.xcdatamodeld */ = {

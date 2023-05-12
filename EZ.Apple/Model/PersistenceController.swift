@@ -29,6 +29,15 @@ class PersistenceController {
         return  NSEntityDescription.entity(forEntityName: "Statement", in: context)
     }
     
+    func dateFromString(_ dateString: Date) -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd" // 입력받은 문자열의 형식에 맞춰서 dateFormat을 설정합니다.
+        
+        let dateString = formatter.string(from: dateString)
+        
+        return formatter.date(from: dateString)
+    }
+    
     
     
     func createState(id:UUID, state_number:String, state_message:String, state_image:String, state_description: String, created_at:Date, date_format:String){

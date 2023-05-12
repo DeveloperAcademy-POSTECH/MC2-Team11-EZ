@@ -59,10 +59,6 @@ struct test: View {
 
                         }
                     }
-                    
-
-                    
-
                 }
             }
         }

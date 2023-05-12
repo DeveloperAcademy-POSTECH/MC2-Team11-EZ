@@ -1,6 +1,6 @@
 
 import SwiftUI
-
+import SwiftUICharts
 struct CoachMark: View {
     
     // MARK: -Propertites

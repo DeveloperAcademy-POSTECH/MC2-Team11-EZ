@@ -61,7 +61,7 @@ struct MainView: View {
                                     .frame(width: 227, height: 24)
                             
                             } //: Vstack
-                            NavigationLink(destination: EmptyView()) {
+                            NavigationLink(destination: ChartView()) {
                                 Image("ImgButton")
                                     .frame(width: 54, height: 54)
                             }
@@ -88,6 +88,7 @@ struct MainView: View {
             } //: Zstack
            
         } //: Navigation
+        .navigationBarHidden(true)
     }
 }
 

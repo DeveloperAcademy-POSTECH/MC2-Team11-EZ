@@ -160,7 +160,7 @@ struct SwipableView: View {
                     .padding(.bottom, 30)
                    // .background(Color.blue)
                     .gesture(dragGesture)
-                    .border(.red)
+                    
                     
                     
 //                    if recordShow {

@@ -47,12 +47,16 @@ struct ShareView: View {
             }.padding(.horizontal, 20)
                 
             
+                //공유버튼, 텍스트를 뽑
+            
             
             if show {
                 EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: number, show: $show)
                 
             }
-        }.background(Image("ImgBackground")
+        }
+//        .navigationBarBackButtonHidden()
+        .background(Image("ImgBackground")
             .ignoresSafeArea(.all)
         )
         

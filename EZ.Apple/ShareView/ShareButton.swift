@@ -12,6 +12,7 @@ struct ShareButton: View {
     var body: some View {
         HStack{
             Button {
+                // func image, text 지우기
                 shareScreenshot()
             } label: {
                 Image(systemName: "square.and.arrow.up")
@@ -29,14 +30,19 @@ struct ShareButton: View {
     }
     
     func shareScreenshot() {
+                //
+        
             if let window = UIApplication.shared.windows.first {
                 // Capture screenshot of the view
                 let screenshot = window.rootViewController?.view.asImage()
 
                 // Share screenshot using UIActivityViewController
                 let activityViewController = UIActivityViewController(activityItems: [screenshot!], applicationActivities: nil)
+                
                 UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+                
             }
+        
         }
 }
 

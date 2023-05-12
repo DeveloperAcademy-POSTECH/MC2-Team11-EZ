@@ -10,6 +10,7 @@ import SwiftUI
 struct ShareView: View {
     @StateObject var dateFormat = DateFormat()
     @State var show = false
+//    @State var shareShow = false
     @Binding var number: Int
     var placeholder : String
     @Namespace var namespace
@@ -19,7 +20,11 @@ struct ShareView: View {
         ZStack(alignment: .top){
             VStack(spacing: 0){
                 if !show {
-                    ShareButton()
+        
+//                    if !shareShow{
+                        ShareButton()
+                        
+//                    }
                     
                     VStack{
                         EmojiCard(dateFormat: DateFormat(), namespace: namespace, number: number)

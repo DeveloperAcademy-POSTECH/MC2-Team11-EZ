@@ -14,7 +14,7 @@ struct SelectEmoji: View {
     @Binding var isAnimating: Bool
     @Binding var isShowText: Bool
     @Binding var number: Int
-    @Binding  var isTextToggle: Bool
+    @Binding var isTextToggle: Bool
     @Binding var isShowResultEmoji: Bool
     
     // MARK: - Body

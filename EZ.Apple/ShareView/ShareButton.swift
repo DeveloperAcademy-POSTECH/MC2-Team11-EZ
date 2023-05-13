@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShareButton: View {
-    @State var shareShow : Bool = false
+    @Binding var shareShow : Bool
     
     var body: some View {
         HStack{
@@ -60,6 +60,6 @@ struct ShareButton: View {
 
 struct ShareButton_Previews: PreviewProvider {
     static var previews: some View {
-        ShareButton()
+        ShareButton(shareShow: .constant(true))
     }
 }

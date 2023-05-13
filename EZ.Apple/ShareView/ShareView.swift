@@ -10,10 +10,11 @@ import SwiftUI
 struct ShareView: View {
     @StateObject var dateFormat = DateFormat()
     @State var show = false
-//    @State var shareShow = false
+    @State var shareShow : Bool = false
     @Binding var number: Int
-    var placeholder : String
+    
     @Namespace var namespace
+    var placeholder : String
     
     
     var body: some View {
@@ -22,17 +23,25 @@ struct ShareView: View {
                 if !show {
         
 //                    if !shareShow{
-                        ShareButton()
+                    ShareButton(shareShow: $shareShow)
                         
 //                    }
                     
                     VStack{
                         EmojiCard(dateFormat: DateFormat(), namespace: namespace, number: number)
                         
-                        Text("Touch any screen to skip the detail")
-                            .font(.system(size: 15))
-                            .foregroundColor(Color(.white))
-                            .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
+                        if !shareShow{
+                            Text("Touch any screen to skip the detail")
+                                .font(.system(size: 15))
+                                .foregroundColor(Color(.white))
+                                .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
+                        } else {
+                            Text("Touch any screen to skip the detail")
+                                .font(.system(size: 15))
+                                .foregroundColor(Color(.white))
+                                .shadow(color: .black.opacity(0.7), radius: 8, x: 0, y: 0)
+                                .opacity(0)
+                        }
                         Spacer()
                     }
                     .overlay(
@@ -60,9 +69,11 @@ struct ShareView: View {
                 
             }
         }
-//        .navigationBarBackButtonHidden()
+        .navigationBarBackButtonHidden(shareShow ? true : false)
         .background(Image("ImgBackground")
-            .ignoresSafeArea(.all)
+        .ignoresSafeArea(.all)
+                
+        
         )
         
     }

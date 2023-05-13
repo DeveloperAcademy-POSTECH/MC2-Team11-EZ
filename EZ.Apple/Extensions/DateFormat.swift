@@ -1,15 +1,13 @@
-//
-//  DateFormat.swift
-//  EZ.Apple
-//
-//  Created by seunghoria on 2023/05/07.
-//
-
 import SwiftUI
 
 class DateFormat: ObservableObject {
     
     @Published var dateFormat:String
+    @Published var monthDayFormat:String
+    @Published var monthFormatMinusOneWeek:String // 1주일 뺀 값을 저장할 변수
+    
+    @Published var nowDate:String // 1주일 뺀 값을 저장할 변수
+    @Published var pastOneWeekDate:String // 1주일 뺀 값을 저장할 변수
     
     init(){
     let date = Date()
@@ -18,6 +16,8 @@ class DateFormat: ObservableObject {
     
     
     //월 구하기
+        
+        
     dateFormatter.dateFormat = "MMMM"
     let month = dateFormatter.string(from: date)
     
@@ -29,8 +29,14 @@ class DateFormat: ObservableObject {
     //요일 구하기
     dateFormatter.dateFormat = "eeee"
     let weekDay = dateFormatter.string(from: date)
+        
+    dateFormatter.dateFormat = "M.dd"
+    let monthDay = dateFormatter.string(from: date)
+        
+    // 1주일 뺀 값 구하기
+    let weekAgo = date.addingTimeInterval(-7 * 24 * 60 * 60) // 1주일 전의 날짜 구하기
+    let monthDayMinusOneWeek = dateFormatter.string(from: weekAgo) // 1주일 뺀 값을 monthDay 변수에 저장하기
 
-    
     //ordinalNumber 구하기
     var ordinalNumbers : String = ""
     switch (dayInt) {
@@ -48,24 +54,30 @@ class DateFormat: ObservableObject {
         break;
     }
     dateFormat = "\(weekDay), \(month) \(day)\(ordinalNumbers)"
+    monthDayFormat = "\(monthDay)"
+    monthFormatMinusOneWeek = "\(monthDayMinusOneWeek)" // 1주일 뺀 값을 monthFormatMinusOneWeek 변수에 저장하기
+    nowDate = "\(date)"
+    pastOneWeekDate = "\(weekAgo)"
+        
     }
+    
     func formattedDateString() -> String{
         return dateFormat
     }
-}
-
-
-class MyViewController: UIViewController {
     
-    let persistenceController = PersistenceController.coreDm
-    let dateFormatter = DateFormatter()
+    func formattedDateString2() -> String{
+        return monthDayFormat
+    }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let startDate = dateFormatter.date(from: "2023-05-01")!
-        let endDate = dateFormatter.date(from: "2023-05-06")!
-        let statements = persistenceController.fetchStatementForDate(startDate: startDate, endDate: endDate)
-        // statements 배열을 사용하여 원하는 방식으로 데이터를 표시하거나 처리합니다.
+    func formattedDateString3() -> String{
+        return monthFormatMinusOneWeek
+    }
+    
+    func formattedDateString4() -> String{
+        return nowDate
+    }
+//
+    func formattedDateString5() -> String{
+        return pastOneWeekDate
     }
 }

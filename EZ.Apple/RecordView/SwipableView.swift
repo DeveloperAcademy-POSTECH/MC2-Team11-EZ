@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct SwipableView: View {
-    
+    @Binding var endDateString : String
+    @Binding var startDateString : String
+    @Binding var selectedDate : Date
+    @Binding var pastWeekDate : Date
+    @Binding var statements : [Statement]
+    @StateObject var dateFormat : DateFormat
     @State var height: CGFloat = 80
     //@State var recordShow : Bool
-    
     @State var isShowCal = true
+    
+    @Namespace var namespace
     
     let minHeight: CGFloat = 80
     let maxHeight: CGFloat = 792
@@ -39,118 +45,81 @@ struct SwipableView: View {
                 VStack(spacing: 0){
                     // Handle
                     VStack(spacing: 0){
+                        VStack{
                             Capsule()
                                 .foregroundColor(Color.black.opacity(0.5))
                                 .opacity(0.5)
                                 .frame(width: 49, height: 4)
-                                .padding(.top, 6)
+                                .padding(.top, 20)
+                                
                             
                             Text("15 Records")
                                 .font(.system(size: 16, weight: .semibold))
-                                .padding(.top, 16)
-                        
-                    
-                        if isShowCal {
-                            
-                            Button {
-                                isShowCal.toggle()
+                                .padding(.top, 10)
                                 
-                            } label: {
+                        }
+                        .gesture(dragGesture)
+//                        .border(.red) //탭 제스쳐 위치
+
+                        if isShowCal {
+                            VStack{
                                 Rectangle()
                                     .fill(Color.white)
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 100)
                                     .cornerRadius(30)
-                                   // .matchedGeometryEffect(id: "recordBackground", in: namespace)
+                                 .matchedGeometryEffect(id: "recordBackground", in: namespace)
                                     .shadow(color: Color.black.opacity(0.14), radius: 12, x: 2, y: 2)
                                     .overlay{
                                         VStack{
                                             Text("Which week do you want to explore?")
                                                 .font(.system(size: 12))
                                                 .foregroundColor(Color("ColorGray100"))
-                                            //    .matchedGeometryEffect(id: "dateQuestion", in: namespace)
-                                            //    .padding(.bottom, 1)
+                                                .frame(width: 350)
+                                                .matchedGeometryEffect(id: "recordText", in: namespace)
                                             
                                             HStack(spacing: 0){
-                                                Text("4.23")
+                                                Text("\(endDateString.isEmpty ? dateFormat.monthFormatMinusOneWeek : endDateString)")
                                                     .font(.system(size: 30, weight: .bold))
                                                     .foregroundColor(Color("ColorDate"))
-                                                //    .matchedGeometryEffect(id: "startDay", in: namespace)
+                                                    .matchedGeometryEffect(id: "endingDate", in: namespace)
                                                     .padding(.trailing, 48)
                                                 
                                                 Capsule()
-                                                    .foregroundColor(Color.black.opacity(0.5))
+                                                    .foregroundColor(Color("ColorGray100"))
                                                     .opacity(0.5)
                                                     .frame(width: 18, height: 4)
-                                                  //  .matchedGeometryEffect(id: "capsule", in: namespace)
+                                                  .matchedGeometryEffect(id: "capsule", in: namespace)
                                                     .padding(.trailing, 48)
                                                 
-                                                Text("4.29")
+                                                Text("\(startDateString.isEmpty ? dateFormat.monthDayFormat : startDateString)")
                                                     .font(.system(size: 30, weight: .bold))
                                                     .foregroundColor(Color("ColorDate"))
-                                                  //  .matchedGeometryEffect(id: "endDay", in: namespace)
+                                                  .matchedGeometryEffect(id: "SelectedDate", in: namespace)
                                             }
-                                            
                                                 
+                                            
+
+                                            
+                                            
                                         }
                                     }
+                                    .padding(.top, 30)
+                                    .padding(.horizontal, 20)
+                                    .padding(.bottom, 30)
                             }
-                            .padding(.top, 30)
-                            .padding(.horizontal, 20)
-                            .padding(.bottom, 30)
+                            .onTapGesture {
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.6)){
+                                    isShowCal.toggle()
+                                }
+                            }
                             
-                            RecordList()
+                            RecordList(selectedDate: $selectedDate, pastWeekDate:$pastWeekDate, statements: $statements)
                         } else {
                             
                             VStack{
-                                Button {
-                                    isShowCal.toggle()
-                                    
-                                } label: {
-                                    Rectangle()
-                                        .fill(Color.white)
-                                        .frame(maxWidth: .infinity)
-                                        .frame(height: 100)
-                                        .cornerRadius(30)
-                                       // .matchedGeometryEffect(id: "recordBackground", in: namespace)
-                                        .shadow(color: Color.black.opacity(0.14), radius: 12, x: 2, y: 2)
-                                        .overlay{
-                                            VStack{
-                                                Text("Which week do you want to explore?")
-                                                    .font(.system(size: 12))
-                                                    .foregroundColor(Color("ColorGray100"))
-                                                //    .matchedGeometryEffect(id: "dateQuestion", in: namespace)
-                                                //    .padding(.bottom, 1)
-                                                
-                                                HStack(spacing: 0){
-                                                    Text("4.23")
-                                                        .font(.system(size: 30, weight: .bold))
-                                                        .foregroundColor(Color("ColorDate"))
-                                                    //    .matchedGeometryEffect(id: "startDay", in: namespace)
-                                                        .padding(.trailing, 48)
-                                                    
-                                                    Capsule()
-                                                        .foregroundColor(Color.black.opacity(0.5))
-                                                        .opacity(0.5)
-                                                        .frame(width: 18, height: 4)
-                                                      //  .matchedGeometryEffect(id: "capsule", in: namespace)
-                                                        .padding(.trailing, 48)
-                                                    
-                                                    Text("4.29")
-                                                        .font(.system(size: 30, weight: .bold))
-                                                        .foregroundColor(Color("ColorDate"))
-                                                      //  .matchedGeometryEffect(id: "endDay", in: namespace)
-                                                }
-                                                
-                                                    
-                                            }
-                                        }
-                                }
-                            
-                                .padding(.horizontal, 20)
-                                .padding(.bottom, 30)
-                                
-                                CalenderBox()
+                                CalenderBox(dateFormat: DateFormat(), selectedDate: $selectedDate, pastWeekDate:$pastWeekDate, startDateString: $startDateString, endDateString: $endDateString, isShowCal: $isShowCal, statements : $statements, namespace: namespace)
+                                    .padding(.top, 20)
                             }
                            
                         }
@@ -159,7 +128,7 @@ struct SwipableView: View {
                     }
                     .padding(.bottom, 30)
                    // .background(Color.blue)
-                    .gesture(dragGesture)
+                    
                     
                     
                     
@@ -182,6 +151,7 @@ struct SwipableView: View {
                 
                 
             }
+            .shadow(color: Color.black.opacity(0.2), radius: 8, y: 0)
         }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea(edges: .bottom)
@@ -224,7 +194,8 @@ struct SwipableView: View {
 }
 
 struct SwipableView_Previews: PreviewProvider {
+    @Namespace static var namespace
     static var previews: some View {
-        SwipableView()
+        SwipableView(endDateString: .constant("4.30"), startDateString: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), statements: .constant([Statement]()), dateFormat : DateFormat(),  namespace: _namespace)
     }
 }

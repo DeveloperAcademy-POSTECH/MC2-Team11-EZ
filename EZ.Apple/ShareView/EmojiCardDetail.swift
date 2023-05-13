@@ -12,6 +12,8 @@ struct EmojiCardDetail: View {
     var namespace : Namespace.ID
     var number: Int
     
+    
+    
     @State var tag:Int? = nil
     @State var text: String = ""
     @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
@@ -19,8 +21,8 @@ struct EmojiCardDetail: View {
     
     
     var body: some View {
-        ZStack{
-            NavigationLink(destination: ChartView(), tag: 1, selection: self.$tag) {
+        ZStack {
+            NavigationLink(destination: ChartView(dateFormat: DateFormat()), tag: 1, selection: self.$tag) {
             }
             
             ScrollView{
@@ -30,7 +32,7 @@ struct EmojiCardDetail: View {
                         
                         VStack(spacing: 0){
                             Rectangle()
-                                
+                            
                                 .frame(maxWidth: .infinity)
                                 .frame(height: 360)
                                 .cornerRadius(36, corners: .bottomRight)
@@ -41,7 +43,7 @@ struct EmojiCardDetail: View {
                                 .matchedGeometryEffect(id: "background", in: namespace)
                                 .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
                                 .border(.black)
-                                
+                            
                                 .overlay{
                                     VStack(spacing: 0){
                                         Spacer()
@@ -87,15 +89,12 @@ struct EmojiCardDetail: View {
                                     //                            .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
                                 }
                                 .padding(.bottom, 30)
-                        
-                            
                         }
-                        
                     }
                     .frame(height: 360)
-
-
-
+                    
+                    
+                    
                     ZStack(alignment: .topLeading) {
                         Rectangle()
                             .frame(maxWidth: .infinity)
@@ -111,12 +110,9 @@ struct EmojiCardDetail: View {
                                     .multilineTextAlignment(.leading)
                                     .lineSpacing(4)
                                     .padding(.vertical, 30)
-                                    
-
-                            
                             }
                         
-
+                        
                         if text.isEmpty {
                             Text(placeholder)
                                 .font(.custom("SF-Pro", size: 14))
@@ -126,31 +122,27 @@ struct EmojiCardDetail: View {
                                 .padding(.leading, 30)
                         }
                     }.padding(.horizontal, 20)
-                    .padding(.top, 20)
-                    .border(.blue)
-
+                        .padding(.top, 20)
+                        .border(.blue)
+                    
                     // 네비게이션 tag 추가
                     Button {
-                        PersistenceController.coreDm.createState(id:UUID(),state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
+                        PersistenceController.coreDm.createState(id:UUID(), state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: text, created_at: Date(), date_format: dateFormat.dateFormat)
                         
                         self.tag = 1
                         print(PersistenceController.coreDm.readAllUser())
+                        
                     } label: {
-                        Text("That’s all")
-                            .font(.custom("SF-Pro", size: 20))
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .frame(height: 60)
-                            //.padding(EdgeInsets(top: 20, leading: 130, bottom: 20, trailing: 130))
-                            .background(Color("ColorAccentBlue"))
-                            
+                        Image("ImgBtnCreate")
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 330)
+                            .shadow(color: Color.black.opacity(0.2), radius: 8, y: 5)
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 180)
+                    
                 }
-            
-                
-                
             }.ignoresSafeArea(.all)
             
             Button {
@@ -158,6 +150,7 @@ struct EmojiCardDetail: View {
                 {
                     show.toggle()
                 }
+                
             } label: {
                 Image(systemName: "xmark")
                     .font(.body.weight(.bold))
@@ -166,7 +159,8 @@ struct EmojiCardDetail: View {
                     .background(.ultraThinMaterial, in: Circle())
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-            .padding(30)
+            .padding(.trailing, 30)
+            .padding(.top, 60)
             .ignoresSafeArea()
             .border(.red)
             

@@ -63,33 +63,36 @@ class PersistenceController {
         
     }
     
-    func fetchStatementForDate(startDate: Date, endDate: Date) -> [Statement] {
+    func fetchStatementForDate(selectedDate: Date, pastWeekDate: Date) -> [Statement] {
         let fetchRequest: NSFetchRequest<Statement> = Statement.fetchRequest()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        let startString = dateFormatter.string(from: startDate)
-        let endString = dateFormatter.string(from: endDate)
-        let startDateNSDate = startDate as NSDate
-        let endDateNSDate = endDate as NSDate
-        
-        print(startDate)
-        print(endDate)
+            
+        let pastWeekNSDate = pastWeekDate as NSDate
+        let selectedNSDate = selectedDate as NSDate
 
-        print(startString)
-        print(endString)
-        
-        let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", startDateNSDate, endDateNSDate)
-        
+        print("\(pastWeekNSDate) 1주일 전(함수에서 호출)")
+        print("\(selectedNSDate) 선택일 (함수에서 호출)")
+
+        let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", pastWeekNSDate, selectedNSDate)
+            
+        print(predicate)
+
         fetchRequest.predicate = predicate
-        
+            
         do {
             let statements = try context.fetch(fetchRequest)
+            // loop through the fetched results and access each property to fault them in memory
+            for statement in statements {
+                let _ = statement.created_at
+            }
             return statements
         } catch {
             print("Error fetching statements: \(error.localizedDescription)")
             return []
         }
     }
+
     
     
     

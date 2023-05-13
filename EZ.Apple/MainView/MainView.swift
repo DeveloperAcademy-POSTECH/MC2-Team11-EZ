@@ -61,7 +61,7 @@ struct MainView: View {
                                     .frame(width: 227, height: 24)
                             
                             } //: Vstack
-                            NavigationLink(destination: ChartView()) {
+                            NavigationLink(destination: ChartView(dateFormat: DateFormat())) {
                                 Image("ImgButton")
                                     .frame(width: 54, height: 54)
                             }

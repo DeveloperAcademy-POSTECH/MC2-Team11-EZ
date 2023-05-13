@@ -7,7 +7,14 @@ struct ChartView: View {
     let number = 3
     @State var tag:Int? = nil
     @State var isShownSheet = false
+    @State var endDateString : String = ""
+    @State var startDateString : String = ""
+    @State var selectedDate = Date()
+    @State var pastWeekDate = Date()
+    @State var statements = [Statement]()
+    @StateObject var dateFormat : DateFormat
     
+     
     let stateData = [StateData(year: 2023, month: 5, day: 10, state: 23),
                      StateData(year: 2023, month: 5, day: 11, state: 40),
                      StateData(year: 2023, month: 5, day: 11, state: 70),
@@ -27,9 +34,9 @@ struct ChartView: View {
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Your statement graph for")
                                 .font(.system(size: 16))
-                                
                                 .foregroundColor(.gray)
-                            Text("4.23 - 4.29")
+                            
+                            Text("\(endDateString.isEmpty ? dateFormat.monthFormatMinusOneWeek : endDateString) - \(startDateString.isEmpty ? dateFormat.monthDayFormat : startDateString)")
                                 .font(.system(size: 32))
                                 .fontWeight(.bold)
                             
@@ -95,7 +102,7 @@ struct ChartView: View {
             .ignoresSafeArea()
             .padding(.top, 24)
             
-            SwipableView()
+            SwipableView(endDateString:$endDateString, startDateString:$startDateString, selectedDate : $selectedDate, pastWeekDate : $pastWeekDate, statements: $statements, dateFormat:DateFormat())
             
         }
         .navigationBarHidden(true)
@@ -105,6 +112,6 @@ struct ChartView: View {
 // MARK: - Preview
 struct ChartView_Previews: PreviewProvider {
     static var previews: some View {
-        ChartView()
+        ChartView(dateFormat: DateFormat())
     }
 }

@@ -12,6 +12,8 @@ struct EmojiCardDetail: View {
     var namespace : Namespace.ID
     var number: Int
     
+    
+    
     @State var tag:Int? = nil
     @State var text: String = ""
     @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
@@ -19,8 +21,8 @@ struct EmojiCardDetail: View {
     
     
     var body: some View {
-        ZStack{
-            NavigationLink(destination: ChartView(), tag: 1, selection: self.$tag) {
+        ZStack {
+            NavigationLink(destination: ChartView(dateFormat: DateFormat()), tag: 1, selection: self.$tag) {
             }
             
             ScrollView{
@@ -108,9 +110,6 @@ struct EmojiCardDetail: View {
                                     .multilineTextAlignment(.leading)
                                     .lineSpacing(4)
                                     .padding(.vertical, 30)
-                                
-                                
-                                
                             }
                         
                         
@@ -128,13 +127,13 @@ struct EmojiCardDetail: View {
                     
                     // 네비게이션 tag 추가
                     Button {
-                        PersistenceController.coreDm.createState(id:UUID(),state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: "우리팀 고생했어", created_at: Date(), date_format: dateFormat.dateFormat)
+                        PersistenceController.coreDm.createState(id:UUID(), state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: text, created_at: Date(), date_format: dateFormat.dateFormat)
                         
                         self.tag = 1
                         print(PersistenceController.coreDm.readAllUser())
                         
                     } label: {
-                        Image("ImgCreateBtn")
+                        Image("ImgBtnCreate")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 330)

@@ -106,23 +106,6 @@ struct DescriptionView: View {
                 }
             }.ignoresSafeArea(.all)
             
-
-            Button {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.5))
-                {
-                    isshow = false // 버튼 누르면 DescriptionView 닫히도록 구현 예정
-                }
-            } label: {
-                Image(systemName: "xmark")
-                    .font(.body.weight(.bold))
-                    .foregroundColor(.secondary)
-                    .padding(8)
-                    .background(.ultraThinMaterial, in: Circle())
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-            .padding(20)
-            //.ignoresSafeArea()
-            
         }
         .background(Image("ImgBackground")
             .ignoresSafeArea(.all)

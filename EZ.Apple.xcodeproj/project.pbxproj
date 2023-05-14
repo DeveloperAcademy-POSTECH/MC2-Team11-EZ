@@ -27,7 +27,6 @@
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
 		3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DECB2A07B80700C5D1DD /* CoachMark.swift */; };
 		3B4EAEFA2A0E622700B045A2 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */; };
-		CA6A56662A0D2ED3005D2CCA /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A56652A0D2ED3005D2CCA /* StateData.swift */; };
 		CA6A56682A0D2EEB005D2CCA /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A56672A0D2EEB005D2CCA /* ChartView.swift */; };
 		CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */; };
 		CABAB7C029FFD1EA00FA86A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */; };
@@ -55,7 +54,7 @@
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
 		3B25DECB2A07B80700C5D1DD /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
 		3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
-		CA6A56652A0D2ED3005D2CCA /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
+		CA2468F52A111DD300BAAF3B /* EZ-Apple-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EZ-Apple-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CA6A56672A0D2EEB005D2CCA /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZ.Apple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZ_AppleApp.swift; sourceTree = "<group>"; };
@@ -139,7 +138,6 @@
 		CA6A56622A0D2B82005D2CCA /* GraphView */ = {
 			isa = PBXGroup;
 			children = (
-				CA6A56652A0D2ED3005D2CCA /* StateData.swift */,
 				CA6A56672A0D2EEB005D2CCA /* ChartView.swift */,
 			);
 			path = GraphView;
@@ -164,6 +162,7 @@
 		CABAB7BA29FFD1E800FA86A6 /* EZ.Apple */ = {
 			isa = PBXGroup;
 			children = (
+				CA2468F52A111DD300BAAF3B /* EZ-Apple-Info.plist */,
 				CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */,
 				CA6A56622A0D2B82005D2CCA /* GraphView */,
 				3B4EAEE72A0B77DF00B045A2 /* RecordView */,
@@ -261,7 +260,6 @@
 				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
 				29F0CDCD2A0D0C3D00EC6AE7 /* CalenderBox.swift in Sources */,
 				29F0CDCB2A0D0BDD00EC6AE7 /* SwipableView.swift in Sources */,
-				CA6A56662A0D2ED3005D2CCA /* StateData.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
 				29F0CDD12A0D14D900EC6AE7 /* ListUpTest.swift in Sources */,
 				1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */,
@@ -410,9 +408,9 @@
 				DEVELOPMENT_TEAM = ADU9G6DNZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EZ-Apple-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
@@ -440,9 +438,9 @@
 				DEVELOPMENT_TEAM = ADU9G6DNZ9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EZ-Apple-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UIUserInterfaceStyle = Light;

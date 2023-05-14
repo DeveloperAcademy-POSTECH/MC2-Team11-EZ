@@ -12,7 +12,6 @@ struct EZ_AppleApp: App {
     var body: some Scene {
         WindowGroup {
             MainView(dateFormat: DateFormat())
-//            EmojiCardDetail()
         }
     }
 }

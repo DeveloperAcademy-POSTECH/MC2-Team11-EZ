@@ -12,9 +12,9 @@ struct SwipableView: View {
     @Binding var selectedDateMonthDay : String
     @Binding var selectedDate : Date
     @Binding var pastWeekDate : Date
+    @Binding var height: CGFloat
     @Binding var statements : [Statement]
     @StateObject var dateFormat : DateFormat
-    @State var height: CGFloat = 80
     @State var isShowCal = true
     
     @Namespace var namespace
@@ -23,10 +23,10 @@ struct SwipableView: View {
     let maxHeight: CGFloat = 792
     
     
-    var percentage: Double {
+   var percentage: Double {
         height / maxHeight
     }
-    
+
     var body: some View {
         
         VStack {
@@ -34,6 +34,7 @@ struct SwipableView: View {
                 Color.black
                     .ignoresSafeArea(edges: .all)
                     .opacity(min(0.7, percentage - 0.1))
+                    //.opacity(min(0.7, percentage - 0.1))
                     .onTapGesture {
                         withAnimation(Animation.easeInOut(duration: 0.4)) {
                             height = minHeight
@@ -51,13 +52,12 @@ struct SwipableView: View {
                                 .padding(.top, 20)
                                 
                             
-                            Text("15 Records")
+                            Text("\(statements.count / 6 + 6) Records")
                                 .font(.system(size: 16, weight: .semibold))
                                 .padding(.top, 10)
                                 
                         }
                         .gesture(dragGesture)
-//                        .border(.red) //탭 제스쳐 위치
 
                         if isShowCal {
                             VStack{
@@ -125,19 +125,6 @@ struct SwipableView: View {
                             
                     }
                     .padding(.bottom, 30)
-                   // .background(Color.blue)
-                    
-                    
-                    
-                    
-//                    if recordShow {
-//                        mainRecordView()
-//                    }
-//
-//                    if !recordShow {
-//                        CalenderBox(recordShow: $recordShow)
-//                    }
-//
                     
                 }
                 .frame(maxWidth: .infinity)
@@ -162,28 +149,30 @@ struct SwipableView: View {
     var dragGesture: some Gesture {
         DragGesture(minimumDistance: 0)
             .onChanged { val in
-                
+
                 var newHeight = height - val.translation.height
-                
+
                 if newHeight > maxHeight {
-                    
+
                     // lets make a better user experience
                     newHeight = maxHeight - val.translation.height / 2
                 }
                 else if newHeight < minHeight {
                     newHeight = maxHeight
                 }
-                
+
                 height = newHeight
             }
             .onEnded { val in
                 let percentage = height / maxHeight
                 var finalHeight = maxHeight
+
+            
                 
                 if percentage < 0.45 {
                     finalHeight = minHeight
                 }
-                
+
                 withAnimation(Animation.easeOut(duration: 0.3)) {
                     height = finalHeight
                 }
@@ -194,6 +183,6 @@ struct SwipableView: View {
 struct SwipableView_Previews: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
-        SwipableView(pastWeekDateMonthDay: .constant("4.30"), selectedDateMonthDay: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), statements: .constant([Statement]()), dateFormat : DateFormat(),  namespace: _namespace)
+        SwipableView(pastWeekDateMonthDay: .constant("4.30"), selectedDateMonthDay: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), height: .constant(80), statements: .constant([Statement]()),  dateFormat : DateFormat(),  namespace: _namespace)
     }
 }

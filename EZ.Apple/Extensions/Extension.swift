@@ -16,23 +16,23 @@ extension View {
         switch number {
         case 0..<10:
             return "Fuck Lah.."
-        case 11..<20:
+        case 10..<20:
             return "Exhausted.."
-        case 21..<30:
+        case 20..<30:
             return "Bad.."
-        case 31..<40:
+        case 30..<40:
             return "Not Good.."
-        case 41..<50:
+        case 40..<50:
             return "Okay ~"
-        case 51..<60:
+        case 50..<60:
             return "Good ~"
-        case 61..<70:
+        case 60..<70:
             return "Very Good ~"
-        case 71..<80:
+        case 70..<80:
             return "Great!"
-        case 81..<90:
+        case 80..<90:
             return "Awesome!"
-        case 91..<101:
+        case 90..<101:
             return "すばらしい！"
         default:
             return "State Message Error"

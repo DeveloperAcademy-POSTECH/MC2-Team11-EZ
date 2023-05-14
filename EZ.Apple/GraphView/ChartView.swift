@@ -107,10 +107,11 @@ struct ChartView: View {
                 .interpolationMethod(.monotone)
             }
             // MARK: - Customizing Y-Axis Length
+            .frame(height: 400)
             .chartXScale(domain: pastWeekDate...selectedDate)
             .chartYScale(domain: 0...110)
             .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
-            .frame(height: 400)
+            
 //            .onAppear() {
 //                for (index, _) in statements.sorted(by: { $0.created_at! < $1.created_at!}).enumerated() {
 //                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3) {
@@ -151,9 +152,9 @@ struct ChartView: View {
                 .interpolationMethod(.monotone)
             }
             // MARK: - Customizing Y-Axis Length
+            .frame(height: 400)
             .chartXScale(domain: pastWeekDate...selectedDate)
             .chartYScale(domain: 0...110)
-            .frame(height: 400)
             .onAppear() {
                 let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
                 self.statements = statements

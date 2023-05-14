@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct EZ_AppleApp: App {
     init() {
-        Thread.sleep(forTimeInterval: 1)
+        Thread.sleep(forTimeInterval: 2)
     }
     
     var body: some Scene {

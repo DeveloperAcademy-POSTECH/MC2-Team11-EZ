@@ -12,8 +12,8 @@ struct CalenderBox: View {
     @StateObject var dateFormat : DateFormat
     @Binding  var selectedDate : Date
     @Binding  var pastWeekDate : Date
-    @Binding var startDateString: String
-    @Binding var endDateString: String
+    @Binding var selectedDateMonthDay: String
+    @Binding var pastWeekDateMonthDay: String
     @Binding var isShowCal : Bool
     @Binding  var statements : [Statement]
     var namespace : Namespace.ID
@@ -34,11 +34,10 @@ struct CalenderBox: View {
                         .foregroundColor(Color("ColorGray100"))
                         .frame(width: 350)
                         .matchedGeometryEffect(id: "recordText", in: namespace)
-                        
                         .padding(.top, 20)
                     
                     HStack(spacing: 0){
-                        Text("\(endDateString.isEmpty ? dateFormat.monthFormatMinusOneWeek : endDateString)")
+                        Text("\(pastWeekDateMonthDay.isEmpty ? dateFormat.monthFormatMinusOneWeek : pastWeekDateMonthDay)")
                             .font(.system(size: 30, weight: .bold))
                             .foregroundColor(Color("ColorLightGray100"))
                             .matchedGeometryEffect(id: "endingDate", in: namespace)
@@ -51,8 +50,7 @@ struct CalenderBox: View {
                             .matchedGeometryEffect(id: "capsule", in: namespace)
                             .padding(.trailing, 48)
 
-                        Text("\(startDateString.isEmpty ? dateFormat.monthDayFormat: startDateString)")
-                        
+                        Text("\(selectedDateMonthDay.isEmpty ? dateFormat.monthDayFormat: selectedDateMonthDay)")
                             .font(Font.system(size: 30, weight: .bold))
                             .foregroundStyle(
                                 LinearGradient(
@@ -62,26 +60,14 @@ struct CalenderBox: View {
                                 )
                             )
                             .matchedGeometryEffect(id: "SelectedDate", in: namespace)
-
                     }
                     .padding(.top, 14)
-                    
-                    
+
                     Divider()
                         .opacity(1)
                         .padding(.top, 24)
                         .matchedGeometryEffect(id: "divider", in: namespace)
                     
-
-                    VStack {
-//                                    List {
-//                                        ForEach(statements, id: \.self) { statement in
-//                                            let _ = print(statement)
-//
-//                                            Text(statement.state_number ?? "")
-//                                            Text(statement.state_description ?? "")
-//                                        }
-//                                    }
                             VStack {
                                 DatePicker("Start Date", selection: $selectedDate, displayedComponents: [.date])
                                     .datePickerStyle(GraphicalDatePickerStyle())
@@ -92,24 +78,19 @@ struct CalenderBox: View {
                                         let dateFormatter = DateFormatter()
  
                                         dateFormatter.dateFormat = "M.dd"
-                                        startDateString = dateFormatter.string(from: selectedDate)
-                                        endDateString = dateFormatter.string(from: pastWeekDate)
-                                        
+                                        selectedDateMonthDay = dateFormatter.string(from: selectedDate)
+                                        pastWeekDateMonthDay = dateFormatter.string(from: pastWeekDate)
+                                        //ChartView 처음 로드시 값 확인
                                         print(selectedDate)
                                         print(pastWeekDate)
                                     })
                                     .padding(.top, 24)
 
-                                
-                                
                                 Button(action: {
                                     let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
                                     self.statements = statements
                                     
-//                                    print(statements)
-                                    
-                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.6))
-                                    {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.6)) {
                                         isShowCal.toggle()
                                     }
                                 }, label: {
@@ -120,16 +101,9 @@ struct CalenderBox: View {
                                         .shadow(color: Color.black.opacity(0.2), radius: 8, y: 5)
                                 })
                                 .padding(.top, 20)
-                                
-                            
                             }
                             .padding(.horizontal, 20)
-
-                    }
-                    
                     Spacer()
-                    
-                        
                 }
             }             
     }
@@ -139,6 +113,6 @@ struct CalenderBox_Previews: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         
-        CalenderBox(dateFormat: DateFormat(), selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), startDateString: .constant("4.24"), endDateString: .constant("5.24"), isShowCal: .constant(true), statements : .constant([Statement]()), namespace: namespace)
+        CalenderBox(dateFormat: DateFormat(), selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), selectedDateMonthDay: .constant("4.24"), pastWeekDateMonthDay: .constant("5.24"), isShowCal: .constant(true), statements : .constant([Statement]()), namespace: namespace)
     }
 }

@@ -30,9 +30,7 @@ struct ShareButton: View {
                     .frame(width: 20)
                     .opacity(0)
             }
-            
-            
-            
+
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
         .padding(.trailing, 4)

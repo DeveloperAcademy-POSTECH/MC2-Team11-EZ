@@ -32,9 +32,11 @@ class PersistenceController {
     
     
     func createState(id:UUID, state_number:String, state_message:String, state_image:String, state_description: String, created_at:Date, date_format:String){
+        
+//        내 데이터 파일 위치 찾아주기
+//        let urls = FileManager.default.urls(for: .documentDirectory, in:  .userDomainMask)
+//        print(urls[urls.count-1] as URL)
         let statement = Statement(context: persistentContainer.viewContext)
-        let urls = FileManager.default.urls(for: .documentDirectory, in:  .userDomainMask)
-        print(urls[urls.count-1] as URL)
         
         statement.id = id
         statement.state_number = state_number
@@ -70,13 +72,11 @@ class PersistenceController {
             
         let pastWeekNSDate = pastWeekDate as NSDate
         let selectedNSDate = selectedDate as NSDate
-
-        print("\(pastWeekNSDate) 1주일 전(함수에서 호출)")
-        print("\(selectedNSDate) 선택일 (함수에서 호출)")
+//        선택날짜 / 1주일 전 날짜 로그찍기
+//        print("\(pastWeekNSDate) 1주일 전(함수에서 호출)")
+//        print("\(selectedNSDate) 선택일 (함수에서 호출)")
 
         let predicate = NSPredicate(format: "(created_at >= %@) AND (created_at <= %@)", pastWeekNSDate, selectedNSDate)
-            
-        print(predicate)
 
         fetchRequest.predicate = predicate
             
@@ -92,9 +92,6 @@ class PersistenceController {
             return []
         }
     }
-
-    
-    
     
 }
 

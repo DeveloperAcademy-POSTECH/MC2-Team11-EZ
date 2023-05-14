@@ -80,8 +80,6 @@ struct MainView: View {
                         Spacer()
                         
                         DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage)
-
-                        
                     
                 } //: Vstack
                 .padding(.top, 30)

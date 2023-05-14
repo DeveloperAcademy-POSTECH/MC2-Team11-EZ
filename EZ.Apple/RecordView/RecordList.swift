@@ -11,77 +11,41 @@ struct RecordList: View {
     @Binding var selectedDate : Date
     @Binding var pastWeekDate : Date
     @Binding var statements : [Statement]
+    @State var isPresented : Bool = false
+    @State var selectedItem: Statement? = nil
+
+    
+    var groupedData: [String: [Statement]] {
+        Dictionary(grouping: statements, by: { (statement) -> String in
+            guard let createdAt = statement.created_at else { return "" }
+            let formatter = DateFormatter()
+            formatter.dateFormat = "M.dd"
+            return formatter.string(from: createdAt)
+        })
+    }
     
     var body: some View {
         ScrollView{
-            VStack(alignment: .leading, spacing: 0){
-                ForEach(statements, id: \.self) { statement in
-
-                    Rectangle()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 100)
-                        .foregroundColor(.white)
-                        
-                        .overlay{
-                            HStack(spacing: 0) {
-                                Rectangle()
-                                    .frame(maxWidth: 100)
-                                    .frame(height: 100)
-                                    .cornerRadius(24)
-                                    .foregroundColor(.white)
-                                    .opacity(0.3)
-                                    .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                                    .overlay{
-                                        VStack(spacing: 0){
-                                            ZStack {
-                                                
-                                                Image(statement.state_image ?? "")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 54)
-                                                    .padding(.bottom, 10)
-                                                    .blur(radius: 20)
-                                                
-                                                Image(statement.state_image ?? "")
-                                                    .resizable()
-                                                    .aspectRatio(contentMode: .fit)
-                                                    .frame(width: 54)
-                                                    .padding(.bottom, 10)
-                                                
-                                            }
-                                            Text(statement.state_number ?? "")
-                                                .font(.system(size: 12))
-                                                .fontWeight(.black)
-                                        }
-                                        
-                                    }
-                                    .padding(.trailing, 16)
-                                
-                                
-                                VStack(spacing: 0){
-                                    Text(statement.state_message ?? "")
-                                        .font(.system(size: 16, weight: .bold))
-                                        .padding(.bottom, 10)
-                                        .frame(maxWidth: 221, alignment: .leading)
-                                    
-                                    Text(statement.state_description ?? "")
-                                        .font(.system(size: 14))
-                                        .foregroundColor(Color("ColorGray100"))
-                                        .frame(maxWidth: 221, alignment: .leading)
-                                    
-                                }
-                                
-                                
-                            }
-                            .frame(alignment: .leading)
-                        }
-                        .padding(30)
+            VStack(alignment: .leading ,spacing: 0){
+            ForEach(groupedData.keys.sorted(), id: \.self) { key in
+                let item = groupedData[key]!
+                Text("\(key)")
+                    .font(.system(size: 15))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("ColorGray200"))
+                    .padding(.top, 20)
+                    .padding(.leading, 30)
+                    .padding(.bottom, 10)
+                
+                ForEach(item) { subItem in
+                    RecordBox(subItem: subItem)
                 }
             }
         }
+        }  .background(Color.clear)
+            .listStyle(PlainListStyle()) // 리스트 스타일 변경
     }
 }
-
 
 struct RecordList_Previews: PreviewProvider {
     static var previews: some View {

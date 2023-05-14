@@ -7,11 +7,17 @@ struct ChartView: View {
     let number = 3
     @State var tag:Int? = nil
     @State var isShownSheet = false
-    @State var endDateString : String = ""
-    @State var startDateString : String = ""
+
     @State var selectedDate = Date()
-    @State var pastWeekDate = Date()
+    @State var pastWeekDate = Date().addingTimeInterval(-7 * 24 * 60 * 60) // 1주일 전의 날짜 구하기
+    
+    @State var selectedDateMonthDay : String = ""
+    @State var pastWeekDateMonthDay : String = ""
+    
+    
     @State var statements = [Statement]()
+    let persistenceController = PersistenceController.coreDm
+    
     @StateObject var dateFormat : DateFormat
     
      
@@ -36,7 +42,7 @@ struct ChartView: View {
                                 .font(.system(size: 16))
                                 .foregroundColor(.gray)
                             
-                            Text("\(endDateString.isEmpty ? dateFormat.monthFormatMinusOneWeek : endDateString) - \(startDateString.isEmpty ? dateFormat.monthDayFormat : startDateString)")
+                            Text("\(pastWeekDateMonthDay.isEmpty ? dateFormat.monthFormatMinusOneWeek : pastWeekDateMonthDay) - \(selectedDateMonthDay.isEmpty ? dateFormat.monthDayFormat : selectedDateMonthDay)")
                                 .font(.system(size: 32))
                                 .fontWeight(.bold)
                             
@@ -102,9 +108,17 @@ struct ChartView: View {
             .ignoresSafeArea()
             .padding(.top, 24)
             
-            SwipableView(endDateString:$endDateString, startDateString:$startDateString, selectedDate : $selectedDate, pastWeekDate : $pastWeekDate, statements: $statements, dateFormat:DateFormat())
+            SwipableView(pastWeekDateMonthDay:$pastWeekDateMonthDay, selectedDateMonthDay:$selectedDateMonthDay, selectedDate : $selectedDate, pastWeekDate : $pastWeekDate, statements: $statements, dateFormat:DateFormat())
+            
+                
             
         }
+        .onAppear(){
+            let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
+            self.statements = statements
+        }
+
+        
         .navigationBarHidden(true)
     }
 }

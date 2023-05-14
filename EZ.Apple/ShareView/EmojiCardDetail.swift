@@ -128,7 +128,6 @@ struct EmojiCardDetail: View {
                     // 네비게이션 tag 추가
                     Button {
                         PersistenceController.coreDm.createState(id:UUID(), state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: text, created_at: Date(), date_format: dateFormat.dateFormat)
-                        
                         self.tag = 1
                         print(PersistenceController.coreDm.readAllUser())
                         

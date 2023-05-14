@@ -3,21 +3,18 @@ import SwiftUI
 class DateFormat: ObservableObject {
     
     @Published var dateFormat:String
+    
     @Published var monthDayFormat:String
     @Published var monthFormatMinusOneWeek:String // 1주일 뺀 값을 저장할 변수
-    
     @Published var nowDate:String // 1주일 뺀 값을 저장할 변수
-    @Published var pastOneWeekDate:String // 1주일 뺀 값을 저장할 변수
+    @Published var pastOneWeekDate:Date // 1주일 뺀 값을 저장할 변수
     
     init(){
     let date = Date()
     let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
     
-    
     //월 구하기
-        
-        
     dateFormatter.dateFormat = "MMMM"
     let month = dateFormatter.string(from: date)
     
@@ -57,8 +54,7 @@ class DateFormat: ObservableObject {
     monthDayFormat = "\(monthDay)"
     monthFormatMinusOneWeek = "\(monthDayMinusOneWeek)" // 1주일 뺀 값을 monthFormatMinusOneWeek 변수에 저장하기
     nowDate = "\(date)"
-    pastOneWeekDate = "\(weekAgo)"
-        
+    pastOneWeekDate = weekAgo
     }
     
     func formattedDateString() -> String{
@@ -77,7 +73,8 @@ class DateFormat: ObservableObject {
         return nowDate
     }
 //
-    func formattedDateString5() -> String{
+    func formattedDateString5() -> Date{
         return pastOneWeekDate
     }
 }
+

@@ -89,9 +89,7 @@ struct DragWheel: View {
                 .shadow(color: .gray.opacity(0.5), radius: 20, x: 0, y: 1)
         }
         .rotationEffect(Angle(degrees: handleRotation), anchor: .center)// 핸들 세트
-        
         .gesture(
-            
             DragGesture()
                 .onChanged { value in
                     withAnimation {
@@ -123,7 +121,6 @@ struct DragWheel: View {
                     withAnimation {
                         isShowResultEmoji = true
                     }
-                    
                 })
         )
         .onAppear {
@@ -134,7 +131,6 @@ struct DragWheel: View {
                 print("Failed to setup haptic engine: \(error.localizedDescription)")
             }
         }
-
         .frame(width: radius * 2, height: radius * 2)
         .padding(.bottom, -350)
     }

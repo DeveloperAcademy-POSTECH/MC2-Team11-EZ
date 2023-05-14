@@ -28,26 +28,21 @@ struct SelectEmoji: View {
                 .opacity(isShowEmoji ? 1 : 0)
                 .scaleEffect(isShowEmoji ? 1 : 0.5)
             
-            
             Text("\(number)")
                 .font(.custom("molde-expanded-semibold", size: isTextToggle ? 42 : 50))
                 .foregroundColor(.white)
                 .shadow(color: Color.black.opacity(0.5), radius: 30, x: 0, y: 0)
                 .opacity(isShowText ? 1 : 0)
                 .scaleEffect(isShowText ? 1 : 0.5)
-            
-            
-           
+
             NavigationLink(destination: ShareView(number: $number, placeholder: "")) {
                 
                     ZStack{
-                        
                         Rectangle()
                             .frame(width: 224, height: 224)
                             .foregroundColor(.white)
                             .cornerRadius(50)
                             .opacity(0.4)
-                        
                         
                         Image("ImgState\(number / 10)")
                             .resizable()
@@ -58,7 +53,6 @@ struct SelectEmoji: View {
                                 .repeatForever(), value: isAnimating)
                             .blur(radius: 15)
                         
-                        
                         Image("ImgState\(number / 10)")
                             .resizable()
                             .scaledToFit()
@@ -66,8 +60,6 @@ struct SelectEmoji: View {
                             .offset(y: isAnimating ? 5 : -5)
                             .animation(.easeOut(duration: 1)
                                 .repeatForever(), value: isAnimating)
-                        
-                        
                     }
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {

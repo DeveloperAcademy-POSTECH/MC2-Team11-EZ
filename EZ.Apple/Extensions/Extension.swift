@@ -12,7 +12,6 @@ extension View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }
     
-    
     func getSateMessage(number : Int) -> String {
         switch number {
         case 1..<10:
@@ -39,11 +38,7 @@ extension View {
             return "State Message Error"
                     }
     }
-
-
 }
-
-
 
 struct RoundedCorner: Shape {
 
@@ -63,5 +58,13 @@ extension UIView {
         return renderer.image { rendererContext in
             layer.render(in: rendererContext.cgContext)
         }
+    }
+}
+
+extension Date {
+    func dayOfWeek() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        return dateFormatter.string(from: self)
     }
 }

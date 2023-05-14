@@ -8,14 +8,13 @@
 import SwiftUI
 
 struct SwipableView: View {
-    @Binding var endDateString : String
-    @Binding var startDateString : String
+    @Binding var pastWeekDateMonthDay : String
+    @Binding var selectedDateMonthDay : String
     @Binding var selectedDate : Date
     @Binding var pastWeekDate : Date
     @Binding var statements : [Statement]
     @StateObject var dateFormat : DateFormat
     @State var height: CGFloat = 80
-    //@State var recordShow : Bool
     @State var isShowCal = true
     
     @Namespace var namespace
@@ -32,7 +31,6 @@ struct SwipableView: View {
         
         VStack {
             ZStack(alignment: .bottom) {
-                // Background behind SwipableView
                 Color.black
                     .ignoresSafeArea(edges: .all)
                     .opacity(min(0.7, percentage - 0.1))
@@ -79,7 +77,7 @@ struct SwipableView: View {
                                                 .matchedGeometryEffect(id: "recordText", in: namespace)
                                             
                                             HStack(spacing: 0){
-                                                Text("\(endDateString.isEmpty ? dateFormat.monthFormatMinusOneWeek : endDateString)")
+                                                Text("\(pastWeekDateMonthDay.isEmpty ? dateFormat.monthFormatMinusOneWeek : pastWeekDateMonthDay)")
                                                     .font(.system(size: 30, weight: .bold))
                                                     .foregroundColor(Color("ColorDate"))
                                                     .matchedGeometryEffect(id: "endingDate", in: namespace)
@@ -92,7 +90,7 @@ struct SwipableView: View {
                                                   .matchedGeometryEffect(id: "capsule", in: namespace)
                                                     .padding(.trailing, 48)
                                                 
-                                                Text("\(startDateString.isEmpty ? dateFormat.monthDayFormat : startDateString)")
+                                                Text("\(selectedDateMonthDay.isEmpty ? dateFormat.monthDayFormat : selectedDateMonthDay)")
                                                     .font(.system(size: 30, weight: .bold))
                                                     .foregroundColor(Color("ColorDate"))
                                                   .matchedGeometryEffect(id: "SelectedDate", in: namespace)
@@ -118,7 +116,7 @@ struct SwipableView: View {
                         } else {
                             
                             VStack{
-                                CalenderBox(dateFormat: DateFormat(), selectedDate: $selectedDate, pastWeekDate:$pastWeekDate, startDateString: $startDateString, endDateString: $endDateString, isShowCal: $isShowCal, statements : $statements, namespace: namespace)
+                                CalenderBox(dateFormat: DateFormat(), selectedDate: $selectedDate, pastWeekDate:$pastWeekDate, selectedDateMonthDay: $selectedDateMonthDay, pastWeekDateMonthDay: $pastWeekDateMonthDay, isShowCal: $isShowCal, statements : $statements, namespace: namespace)
                                     .padding(.top, 20)
                             }
                            
@@ -196,6 +194,6 @@ struct SwipableView: View {
 struct SwipableView_Previews: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
-        SwipableView(endDateString: .constant("4.30"), startDateString: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), statements: .constant([Statement]()), dateFormat : DateFormat(),  namespace: _namespace)
+        SwipableView(pastWeekDateMonthDay: .constant("4.30"), selectedDateMonthDay: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), statements: .constant([Statement]()), dateFormat : DateFormat(),  namespace: _namespace)
     }
 }

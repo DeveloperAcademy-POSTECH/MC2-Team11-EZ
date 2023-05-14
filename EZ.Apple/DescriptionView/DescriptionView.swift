@@ -13,6 +13,7 @@ struct DescriptionView: View {
     var dateFormat : DateFormat
     let state_Number: Int = 50 //임시값
     let state_Description: String = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non tortor leo. Sed vehicula et sem et mollis.Lorem ipsum dolor sit amet, consectetur " //임시값
+    var subItem: Statement
     
     //@State var tag:Int? = nil
     @State var isshow : Bool = true // X버튼 눌렀을 때 DescriptionView 닫기 위한 변수
@@ -29,27 +30,26 @@ struct DescriptionView: View {
                         VStack(spacing: 0){
                             Rectangle()
                                 .frame(maxWidth: .infinity)
-                                .frame(height: 360)
+                                .frame(height: 390)
                                 .cornerRadius(36, corners: .bottomRight)
                                 .cornerRadius(36, corners: .bottomLeft)
                                 .foregroundColor(.white)
                                 .opacity(0.3)
                                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
-                                .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
-                                .border(.black)
-                            
+                                .blur(radius: scrollY > 0 ? scrollY / 5 : 0)                            
                                 .overlay{
                                     VStack(spacing: 0){
                                         Spacer()
                                         
-                                        Text(dateFormat.dateFormat)
+                                        Text(subItem.date_format ?? "")
                                             .font(.system(size: 12))
                                             .foregroundColor(Color("ColorGray100"))
                                             .padding(.bottom, 33)
+                                            .padding(.top, 30)
                                         
                                         
                                         ZStack {
-                                            Image("ImgState\(state_Number/10)")
+                                            Image(subItem.state_image ?? "")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)
@@ -57,7 +57,7 @@ struct DescriptionView: View {
                                                 .padding(.bottom, 30)
                                             
                                             
-                                            Image("ImgState\(state_Number/10)")
+                                            Image(subItem.state_image ?? "")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)
@@ -65,13 +65,13 @@ struct DescriptionView: View {
                                             
                                         }
                                         
-                                        Text("\(state_Number)")
+                                        Text(subItem.state_number ?? "")
                                             .font(.system(size: 40))
                                             .fontWeight(.black)
                                         
                                         
                                         
-                                        Text("Feeling down")
+                                        Text(subItem.state_message ?? "")
                                             .font(.system(size: 14))
                                             .fontWeight(.medium)
                                             .padding(.bottom, 30)
@@ -93,7 +93,7 @@ struct DescriptionView: View {
                             .cornerRadius(15)
                             .foregroundColor(.white)
                             .overlay{
-                                Text(state_Description)
+                                Text(subItem.state_description ?? "")
                                     .font(.custom("SF-Pro", size: 16))
                                     .lineLimit(10)
                                     .foregroundColor(Color("ColorGray100"))
@@ -103,7 +103,6 @@ struct DescriptionView: View {
                         
                     }.padding(.horizontal, 20)
                         .padding(.top, 30)
-                        .border(.blue)
                 }
             }.ignoresSafeArea(.all)
             
@@ -123,7 +122,6 @@ struct DescriptionView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             .padding(20)
             //.ignoresSafeArea()
-            .border(.red)
             
         }
         .background(Image("ImgBackground")
@@ -133,10 +131,10 @@ struct DescriptionView: View {
         
     }
 }
-
-// MARK: - Preview
-struct DescriptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        DescriptionView(dateFormat: DateFormat())
-    }
-}
+//
+//// MARK: - Preview
+//struct DescriptionView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DescriptionView(dateFormat: DateFormat(), subItem: [Statement)
+//    }
+//}

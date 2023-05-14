@@ -22,9 +22,7 @@ struct CoachMark: View {
                     }
                 }
                 .opacity(isShowDrag ? 0.2 : 1)
-            
-        } else
-        {
+        } else {
             withAnimation(Animation.easeInOut(duration: 2)) {
                 Image("ImgSmallIndicator")
                     .transition(.scale)

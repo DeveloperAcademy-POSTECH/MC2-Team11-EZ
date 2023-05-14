@@ -12,21 +12,14 @@ struct ShareView: View {
     @State var show = false
     @State var shareShow : Bool = false
     @Binding var number: Int
-    
     @Namespace var namespace
     var placeholder : String
-    
     
     var body: some View {
         ZStack(alignment: .top){
             VStack(spacing: 0){
                 if !show {
-        
-//                    if !shareShow{
                     ShareButton(shareShow: $shareShow)
-                        
-//                    }
-                    
                     VStack{
                         EmojiCard(dateFormat: DateFormat(), namespace: namespace, number: number)
                         
@@ -55,27 +48,19 @@ struct ShareView: View {
                                 }
                             }
                     )
-                    
                 }
             }.padding(.horizontal, 20)
                 
-            
-                //공유버튼, 텍스트를 뽑
-            
-            
+            //공유버튼, 텍스트를 뽑
             if show {
                 EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: number, show: $show)
                     .statusBarHidden(true)
-                
             }
         }
         .navigationBarBackButtonHidden(shareShow ? true : false)
         .background(Image("ImgBackground")
         .ignoresSafeArea(.all)
-                
-        
         )
-        
     }
 }
 

@@ -11,7 +11,6 @@
 		1D9255E22A0936D4002C099A /* Statement+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E12A0936D4002C099A /* Statement+CoreDataProperties.swift */; };
 		1D9255E42A0937CE002C099A /* Statement+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */; };
 		1D9255EA2A093A7E002C099A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255E92A093A7E002C099A /* PersistenceController.swift */; };
-		1D9255EC2A0A2E1A002C099A /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9255EB2A0A2E1A002C099A /* test.swift */; };
 		295162EF2A0C94B7002E4C5D /* RecordBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295162EE2A0C94B7002E4C5D /* RecordBox.swift */; };
 		29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0A2A03416B00687162 /* ShareView.swift */; };
 		29EDCF0D2A03418000687162 /* EmojiCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF0C2A03418000687162 /* EmojiCard.swift */; };
@@ -27,7 +26,6 @@
 		3B25DEC82A07B7E000C5D1DD /* SelectEmoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */; };
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
 		3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DECB2A07B80700C5D1DD /* CoachMark.swift */; };
-		3B4EAEE92A0B77F300B045A2 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EAEE82A0B77F300B045A2 /* RecordView.swift */; };
 		3B4EAEFA2A0E622700B045A2 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */; };
 		CA6A56662A0D2ED3005D2CCA /* StateData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A56652A0D2ED3005D2CCA /* StateData.swift */; };
 		CA6A56682A0D2EEB005D2CCA /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A56672A0D2EEB005D2CCA /* ChartView.swift */; };
@@ -41,7 +39,6 @@
 		1D9255E12A0936D4002C099A /* Statement+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statement+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1D9255E32A0937CE002C099A /* Statement+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Statement+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1D9255E92A093A7E002C099A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		1D9255EB2A0A2E1A002C099A /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		295162EE2A0C94B7002E4C5D /* RecordBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordBox.swift; sourceTree = "<group>"; };
 		29EDCF0A2A03416B00687162 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		29EDCF0C2A03418000687162 /* EmojiCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiCard.swift; sourceTree = "<group>"; };
@@ -57,7 +54,6 @@
 		3B25DEC72A07B7E000C5D1DD /* SelectEmoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectEmoji.swift; sourceTree = "<group>"; };
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
 		3B25DECB2A07B80700C5D1DD /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
-		3B4EAEE82A0B77F300B045A2 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		CA6A56652A0D2ED3005D2CCA /* StateData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateData.swift; sourceTree = "<group>"; };
 		CA6A56672A0D2EEB005D2CCA /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
@@ -96,7 +92,6 @@
 				29EDCF0C2A03418000687162 /* EmojiCard.swift */,
 				29EDCF0E2A03418E00687162 /* ShareButton.swift */,
 				29EDCF192A0799C700687162 /* EmojiCardDetail.swift */,
-				1D9255EB2A0A2E1A002C099A /* test.swift */,
 			);
 			path = ShareView;
 			sourceTree = "<group>";
@@ -124,7 +119,6 @@
 		3B4EAEE72A0B77DF00B045A2 /* RecordView */ = {
 			isa = PBXGroup;
 			children = (
-				3B4EAEE82A0B77F300B045A2 /* RecordView.swift */,
 				29F0CDCA2A0D0BDD00EC6AE7 /* SwipableView.swift */,
 				29F0CDD02A0D14D900EC6AE7 /* ListUpTest.swift */,
 				295162EE2A0C94B7002E4C5D /* RecordBox.swift */,
@@ -267,9 +261,7 @@
 				29EDCF1A2A0799C700687162 /* EmojiCardDetail.swift in Sources */,
 				29F0CDCD2A0D0C3D00EC6AE7 /* CalenderBox.swift in Sources */,
 				29F0CDCB2A0D0BDD00EC6AE7 /* SwipableView.swift in Sources */,
-				3B4EAEE92A0B77F300B045A2 /* RecordView.swift in Sources */,
 				CA6A56662A0D2ED3005D2CCA /* StateData.swift in Sources */,
-				1D9255EC2A0A2E1A002C099A /* test.swift in Sources */,
 				29EDCF0B2A03416B00687162 /* ShareView.swift in Sources */,
 				29F0CDD12A0D14D900EC6AE7 /* ListUpTest.swift in Sources */,
 				1D9255DA2A0932CF002C099A /* Model.xcdatamodeld in Sources */,

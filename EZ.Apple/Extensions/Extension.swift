@@ -68,3 +68,8 @@ extension Date {
         return dateFormatter.string(from: self)
     }
 }
+
+
+var backgroundGradient: LinearGradient {
+    return LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+}

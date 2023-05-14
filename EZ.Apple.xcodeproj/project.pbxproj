@@ -27,11 +27,44 @@
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
 		3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DECB2A07B80700C5D1DD /* CoachMark.swift */; };
 		3B4EAEFA2A0E622700B045A2 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */; };
+		CA2468FD2A11224100BAAF3B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2468FC2A11224100BAAF3B /* WidgetKit.framework */; };
+		CA2468FF2A11224100BAAF3B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2468FE2A11224100BAAF3B /* SwiftUI.framework */; };
+		CA2469022A11224100BAAF3B /* EzWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2469012A11224100BAAF3B /* EzWidgetBundle.swift */; };
+		CA2469042A11224100BAAF3B /* EzWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2469032A11224100BAAF3B /* EzWidgetLiveActivity.swift */; };
+		CA2469062A11224100BAAF3B /* EzWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2469052A11224100BAAF3B /* EzWidget.swift */; };
+		CA2469082A11224200BAAF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA2469072A11224200BAAF3B /* Assets.xcassets */; };
+		CA24690C2A11224200BAAF3B /* EzWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CA2468FA2A11224100BAAF3B /* EzWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CA2469112A11234D00BAAF3B /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29EDCF132A078C5D00687162 /* Extension.swift */; };
+		CA2469122A11240C00BAAF3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */; };
 		CA6A56682A0D2EEB005D2CCA /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA6A56672A0D2EEB005D2CCA /* ChartView.swift */; };
 		CABAB7BC29FFD1E800FA86A6 /* EZ_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */; };
 		CABAB7C029FFD1EA00FA86A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */; };
 		CABAB7C329FFD1EA00FA86A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CABAB7C229FFD1EA00FA86A6 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CA24690A2A11224200BAAF3B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABAB7B029FFD1E800FA86A6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA2468F92A11224100BAAF3B;
+			remoteInfo = EzWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CA24690D2A11224200BAAF3B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CA24690C2A11224200BAAF3B /* EzWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1D9255D92A0932CF002C099A /* CoreDataEz.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataEz.xcdatamodel; sourceTree = "<group>"; };
@@ -55,6 +88,14 @@
 		3B25DECB2A07B80700C5D1DD /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
 		3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		CA2468F52A111DD300BAAF3B /* EZ-Apple-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EZ-Apple-Info.plist"; sourceTree = SOURCE_ROOT; };
+		CA2468FA2A11224100BAAF3B /* EzWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EzWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA2468FC2A11224100BAAF3B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		CA2468FE2A11224100BAAF3B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		CA2469012A11224100BAAF3B /* EzWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzWidgetBundle.swift; sourceTree = "<group>"; };
+		CA2469032A11224100BAAF3B /* EzWidgetLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzWidgetLiveActivity.swift; sourceTree = "<group>"; };
+		CA2469052A11224100BAAF3B /* EzWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzWidget.swift; sourceTree = "<group>"; };
+		CA2469072A11224200BAAF3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA2469092A11224200BAAF3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA6A56672A0D2EEB005D2CCA /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZ.Apple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CABAB7BB29FFD1E800FA86A6 /* EZ_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZ_AppleApp.swift; sourceTree = "<group>"; };
@@ -63,6 +104,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA2468F72A11224100BAAF3B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2468FF2A11224100BAAF3B /* SwiftUI.framework in Frameworks */,
+				CA2468FD2A11224100BAAF3B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABAB7B529FFD1E800FA86A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +185,27 @@
 			path = DescriptionView;
 			sourceTree = "<group>";
 		};
+		CA2468FB2A11224100BAAF3B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA2468FC2A11224100BAAF3B /* WidgetKit.framework */,
+				CA2468FE2A11224100BAAF3B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA2469002A11224100BAAF3B /* EzWidget */ = {
+			isa = PBXGroup;
+			children = (
+				CA2469012A11224100BAAF3B /* EzWidgetBundle.swift */,
+				CA2469032A11224100BAAF3B /* EzWidgetLiveActivity.swift */,
+				CA2469052A11224100BAAF3B /* EzWidget.swift */,
+				CA2469072A11224200BAAF3B /* Assets.xcassets */,
+				CA2469092A11224200BAAF3B /* Info.plist */,
+			);
+			path = EzWidget;
+			sourceTree = "<group>";
+		};
 		CA6A56622A0D2B82005D2CCA /* GraphView */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +218,8 @@
 			isa = PBXGroup;
 			children = (
 				CABAB7BA29FFD1E800FA86A6 /* EZ.Apple */,
+				CA2469002A11224100BAAF3B /* EzWidget */,
+				CA2468FB2A11224100BAAF3B /* Frameworks */,
 				CABAB7B929FFD1E800FA86A6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -155,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				CABAB7B829FFD1E800FA86A6 /* EZ.Apple.app */,
+				CA2468FA2A11224100BAAF3B /* EzWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -188,6 +262,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CA2468F92A11224100BAAF3B /* EzWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA2469102A11224200BAAF3B /* Build configuration list for PBXNativeTarget "EzWidgetExtension" */;
+			buildPhases = (
+				CA2468F62A11224100BAAF3B /* Sources */,
+				CA2468F72A11224100BAAF3B /* Frameworks */,
+				CA2468F82A11224100BAAF3B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EzWidgetExtension;
+			productName = EzWidgetExtension;
+			productReference = CA2468FA2A11224100BAAF3B /* EzWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		CABAB7B729FFD1E800FA86A6 /* EZ.Apple */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CABAB7C629FFD1EA00FA86A6 /* Build configuration list for PBXNativeTarget "EZ.Apple" */;
@@ -195,10 +286,12 @@
 				CABAB7B429FFD1E800FA86A6 /* Sources */,
 				CABAB7B529FFD1E800FA86A6 /* Frameworks */,
 				CABAB7B629FFD1E800FA86A6 /* Resources */,
+				CA24690D2A11224200BAAF3B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA24690B2A11224200BAAF3B /* PBXTargetDependency */,
 			);
 			name = EZ.Apple;
 			productName = EZ.Apple;
@@ -215,6 +308,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					CA2468F92A11224100BAAF3B = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					CABAB7B729FFD1E800FA86A6 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -234,11 +330,21 @@
 			projectRoot = "";
 			targets = (
 				CABAB7B729FFD1E800FA86A6 /* EZ.Apple */,
+				CA2468F92A11224100BAAF3B /* EzWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA2468F82A11224100BAAF3B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2469122A11240C00BAAF3B /* Assets.xcassets in Resources */,
+				CA2469082A11224200BAAF3B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABAB7B629FFD1E800FA86A6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,6 +357,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA2468F62A11224100BAAF3B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2469022A11224100BAAF3B /* EzWidgetBundle.swift in Sources */,
+				CA2469042A11224100BAAF3B /* EzWidgetLiveActivity.swift in Sources */,
+				CA2469062A11224100BAAF3B /* EzWidget.swift in Sources */,
+				CA2469112A11234D00BAAF3B /* Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CABAB7B429FFD1E800FA86A6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,7 +399,69 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		CA24690B2A11224200BAAF3B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA2468F92A11224100BAAF3B /* EzWidgetExtension */;
+			targetProxy = CA24690A2A11224200BAAF3B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		CA24690E2A11224200BAAF3B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ADU9G6DNZ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EzWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EzWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Puupy.bootcamp.EZ-Apple.EzWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CA24690F2A11224200BAAF3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ADU9G6DNZ9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EzWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = EzWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Puupy.bootcamp.EZ-Apple.EzWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		CABAB7C429FFD1EA00FA86A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -400,6 +579,7 @@
 		CABAB7C729FFD1EA00FA86A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -430,6 +610,7 @@
 		CABAB7C829FFD1EA00FA86A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,6 +641,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA2469102A11224200BAAF3B /* Build configuration list for PBXNativeTarget "EzWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA24690E2A11224200BAAF3B /* Debug */,
+				CA24690F2A11224200BAAF3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CABAB7B329FFD1E800FA86A6 /* Build configuration list for PBXProject "EZ.Apple" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

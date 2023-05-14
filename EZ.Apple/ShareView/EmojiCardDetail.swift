@@ -42,7 +42,7 @@ struct EmojiCardDetail: View {
                                 .shadow(color: .black.opacity(0.2), radius: 10, x: 0, y: 5)
                                 .matchedGeometryEffect(id: "background", in: namespace)
                                 .blur(radius: scrollY > 0 ? scrollY / 5 : 0)
-                                .border(.black)
+                    
                             
                                 .overlay{
                                     VStack(spacing: 0){
@@ -78,7 +78,7 @@ struct EmojiCardDetail: View {
                                             .matchedGeometryEffect(id: "stateNumber", in: namespace)
                                         
                                         
-                                        Text("Feeling down")
+                                        Text("\(getSateMessage(number: number))")
                                             .font(.system(size: 14))
                                             .fontWeight(.medium)
                                             .padding(.bottom, 30)
@@ -123,11 +123,11 @@ struct EmojiCardDetail: View {
                         }
                     }.padding(.horizontal, 20)
                         .padding(.top, 20)
-                        .border(.blue)
+                    
                     
                     // 네비게이션 tag 추가
                     Button {
-                        PersistenceController.coreDm.createState(id:UUID(), state_number: "\(number)", state_message: "Happy Happy", state_image: "ImgState\(number / 10)", state_description: text, created_at: Date(), date_format: dateFormat.dateFormat)
+                        PersistenceController.coreDm.createState(id:UUID(), state_number: "\(number)", state_number_int: number, state_message: getSateMessage(number: number), state_image: "ImgState\(number / 10)", state_description: text, created_at: Date(), date_format: dateFormat.dateFormat, animate: false)
                         self.tag = 1
                         print(PersistenceController.coreDm.readAllUser())
                         
@@ -161,8 +161,23 @@ struct EmojiCardDetail: View {
             .padding(.trailing, 30)
             .padding(.top, 60)
             .ignoresSafeArea()
-            .border(.red)
             
+        }
+        .onAppear(){
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "33", state_number_int: 33, state_message: getSateMessage(number: 33), state_image: "ImgState\(3)", state_description: "나는 오늘 너무 우울해.. 일이 너무 많은걸", created_at: Date().addingTimeInterval(-6 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "40", state_number_int: 40, state_message: getSateMessage(number: 40), state_image: "ImgState\(4)", state_description: "일이 늦게 끝났지만 그래도 뿌듯하네", created_at: Date().addingTimeInterval(-5 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
+            
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "11", state_number_int: 11, state_message: getSateMessage(number: 11), state_image: "ImgState\(1)", state_description: "시험을 망쳤다. 내일 시험도 망치면 어쩌냐..", created_at: Date().addingTimeInterval(-4 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
+            
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "70", state_number_int: 70, state_message: getSateMessage(number: 70), state_image: "ImgState\(7)", state_description: "왠걸 찍은거 다 맞았어.. 미쳤다.. 나란 사람", created_at: Date().addingTimeInterval(-3 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "55", state_number_int: 55, state_message: getSateMessage(number: 55), state_image: "ImgState\(5)", state_description: "아무 일도 없는 평범한 일상", created_at: Date().addingTimeInterval(-2 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
+            
+            PersistenceController.coreDm.createState(id:UUID(), state_number: "91", state_number_int: 91, state_message: getSateMessage(number: 91), state_image: "ImgState\(9)", state_description: "오늘 코테 1차를 합격했다.. 눈물이 난다.", created_at: Date().addingTimeInterval(-1 * 24 * 60 * 60), date_format: dateFormat.dateFormat, animate: false)
         }
         .navigationBarBackButtonHidden()
         .background(Image("ImgBackground")

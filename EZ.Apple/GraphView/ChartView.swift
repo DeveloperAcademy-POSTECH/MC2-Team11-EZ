@@ -4,7 +4,6 @@ import Charts
 struct ChartView: View {
     // MARK: - Properties
     
-    let number = 3
     @State var tag:Int? = nil
     @State var isShownSheet = false
 
@@ -19,18 +18,6 @@ struct ChartView: View {
     let persistenceController = PersistenceController.coreDm
     
     @StateObject var dateFormat : DateFormat
-    
-     
-    let stateData = [StateData(year: 2023, month: 5, day: 10, state: 23),
-                     StateData(year: 2023, month: 5, day: 11, state: 40),
-                     StateData(year: 2023, month: 5, day: 11, state: 70),
-                     StateData(year: 2023, month: 5, day: 12, state: 27),
-                     StateData(year: 2023, month: 5, day: 13, state: 44),
-                     StateData(year: 2023, month: 5, day: 15, state: 27),
-                     StateData(year: 2023, month: 5, day: 16, state: 83),
-                     StateData(year: 2023, month: 5, day: 16, state: 10)
-    ]
-
     // MARK: - Body
     var body: some View {
         
@@ -61,42 +48,14 @@ struct ChartView: View {
                         .frame(height: 1)
                         .padding(.top, 9)
                     
-                    ZStack{
-                        Chart(stateData) { element in
-                            LineMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
-                            ).lineStyle(.init(lineWidth: 3, lineCap: .round, lineJoin: .round))
-                                .interpolationMethod(.monotone)
-                        }
-                        .chartYScale(domain: 0...110)
-                        .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
-                        
-                        
-                        
+                    ZStack {
+                        AnimatedChart()
 
-                        Chart(stateData) { element in
-                            PointMark(x: .value("Date", element.date, unit: .day), y: .value("State", element.state)
-                            )
-
-                            .annotation(position: .overlay, alignment: .center) {
-                                VStack() {
-                                    Button(action: {
-                                        print("Click")
-                                    }, label: {
-                                        Image("ImgState1")
-                                            .resizable()
-                                            .frame(width: 20, height: 20)
-                                    })
-                                }
-                                .symbolRenderingMode(.multicolor)
-                                .imageScale(.large)
-                                
-                            }
-                            .symbolSize(0)
-                        }
-                        .chartYScale(domain: 0...110)
+                        AnimatedChart2()
                     }
                     .frame(height: 573)
                     .padding(.horizontal, 20)
+                    
                     
                     Rectangle()
                         .stroke(lineWidth: 0.2)
@@ -107,20 +66,87 @@ struct ChartView: View {
                 } //: Vstack
             .ignoresSafeArea()
             .padding(.top, 24)
-            
+
             SwipableView(pastWeekDateMonthDay:$pastWeekDateMonthDay, selectedDateMonthDay:$selectedDateMonthDay, selectedDate : $selectedDate, pastWeekDate : $pastWeekDate, statements: $statements, dateFormat:DateFormat())
             
-                
             
         }
-        .onAppear(){
-            let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
-            self.statements = statements
-        }
-
-        
         .navigationBarHidden(true)
     }
+        
+        func AnimatedChart() -> some View {
+            Chart {
+                ForEach(statements.sorted(by: { $0.created_at! < $1.created_at! })) { item in
+                    // MARK: - Bar Graph
+                    
+                    // MARK: - Animating Graph
+                    LineMark(
+                        x: .value("Hour", item.created_at!, unit: .day),
+                        y: .value("Views", item.state_number_int))
+                }
+                .interpolationMethod(.monotone)
+            }
+            // MARK: - Customizing Y-Axis Length
+            .chartXScale(domain: pastWeekDate...selectedDate)
+            .chartYScale(domain: 0...110)
+            .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
+            .frame(height: 400)
+            .onAppear() {
+                for (index, _) in statements.sorted(by: { $0.created_at! < $1.created_at!}).enumerated() {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3) {
+                        withAnimation(.easeOut(duration: 0.5)) {
+                            statements[index].animate = true
+                        }
+                    }
+                }
+            }
+        }
+        
+    @ViewBuilder
+        func AnimatedChart2() -> some View {
+            Chart {
+                ForEach(statements.sorted(by: { $0.created_at! < $1.created_at! })) { item in
+                    // MARK: - Bar Graph
+                    let _ = print(item.animate)
+                    // MARK: - Animating Graph
+                    PointMark(
+                        x: .value("Hour", item.created_at!, unit: .day),
+                        y: .value("Views", item.state_number_int))
+                    .annotation(position: .overlay, alignment: .center) {
+                        VStack() {
+                            Button(action: {
+                                print("Click")
+                            }, label: {
+                                Image("ImgState\(item.state_number_int / 10)")
+                                    .resizable()
+                                    .frame(width: 20, height: 20)
+                            })
+                        }
+                        .symbolRenderingMode(.multicolor)
+                        .imageScale(.large)
+
+                    }
+                    .symbolSize(0)
+                }
+                .interpolationMethod(.monotone)
+            }
+            // MARK: - Customizing Y-Axis Length
+            .chartXScale(domain: pastWeekDate...selectedDate)
+            .frame(height: 400)
+            .chartYScale(domain: 0...110)
+            .onAppear() {
+                let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
+                self.statements = statements
+                for (index, _) in statements.sorted(by: { $0.created_at! < $1.created_at!}).enumerated() {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + Double(index) * 0.3) {
+                        withAnimation(.easeOut(duration: 0.5)) {
+                            statements[index].animate = true
+                        }
+                    }
+                }
+            }
+            
+        }
 }
 
 // MARK: - Preview

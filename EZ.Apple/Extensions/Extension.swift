@@ -14,7 +14,7 @@ extension View {
     
     func getSateMessage(number : Int) -> String {
         switch number {
-        case 1..<10:
+        case 0..<10:
             return "Fuck Lah.."
         case 11..<20:
             return "Exhausted.."
@@ -32,7 +32,7 @@ extension View {
             return "Great!"
         case 81..<90:
             return "Awesome!"
-        case 91..<100:
+        case 91..<101:
             return "すばらしい！"
         default:
             return "State Message Error"

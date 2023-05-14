@@ -34,9 +34,10 @@ struct SelectEmoji: View {
                 .shadow(color: Color.black.opacity(0.5), radius: 30, x: 0, y: 0)
                 .opacity(isShowText ? 1 : 0)
                 .scaleEffect(isShowText ? 1 : 0.5)
-
-            NavigationLink(destination: ShareView(number: $number, placeholder: "")) {
-                
+            
+            if isShowEmoji == false {
+                NavigationLink(destination: ShareView(number: $number, placeholder: "")) {
+                    
                     ZStack{
                         Rectangle()
                             .frame(width: 224, height: 224)
@@ -69,6 +70,7 @@ struct SelectEmoji: View {
                     .opacity(isShowResultEmoji ? 1 : 0)
                     .scaleEffect(isShowResultEmoji ? 1 : 0.5)
                 }
+            }
             }
         }
     }

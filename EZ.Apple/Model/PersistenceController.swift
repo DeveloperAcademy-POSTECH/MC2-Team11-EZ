@@ -31,20 +31,22 @@ class PersistenceController {
     
     
     
-    func createState(id:UUID, state_number:String, state_message:String, state_image:String, state_description: String, created_at:Date, date_format:String){
+    func createState(id:UUID, state_number:String, state_number_int:Int, state_message:String, state_image:String, state_description: String, created_at:Date, date_format:String, animate : Bool){
         
 //        내 데이터 파일 위치 찾아주기
-//        let urls = FileManager.default.urls(for: .documentDirectory, in:  .userDomainMask)
-//        print(urls[urls.count-1] as URL)
+        let urls = FileManager.default.urls(for: .documentDirectory, in:  .userDomainMask)
+        print(urls[urls.count-1] as URL)
         let statement = Statement(context: persistentContainer.viewContext)
         
         statement.id = id
         statement.state_number = state_number
+        statement.state_number_int = state_number_int
         statement.state_image = state_image
         statement.state_message = state_message
         statement.created_at = created_at
         statement.state_description = state_description
         statement.date_format = date_format
+        statement.animate = false
         
         do {
             try context.save()

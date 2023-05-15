@@ -87,6 +87,15 @@ struct MainView: View {
            
         } //: Navigation
         .navigationBarHidden(true)
+// 폰트확인용 코드
+//        .onAppear{
+//            for family: String in UIFont.familyNames {
+//                            print(family)
+//                            for names : String in UIFont.fontNames(forFamilyName: family){
+//                                print("=== \(names)")
+//                            }
+//                        }
+//        }
     }
 }
 

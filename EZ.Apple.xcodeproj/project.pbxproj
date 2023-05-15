@@ -27,6 +27,8 @@
 		3B25DECA2A07B7F400C5D1DD /* DragWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */; };
 		3B25DECC2A07B80700C5D1DD /* CoachMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B25DECB2A07B80700C5D1DD /* CoachMark.swift */; };
 		3B4EAEFA2A0E622700B045A2 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */; };
+		6C89B4D22A11B40F00C943AE /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C89B4D12A11B40F00C943AE /* SF-Pro.ttf */; };
+		6C89B4D32A11B40F00C943AE /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6C89B4D12A11B40F00C943AE /* SF-Pro.ttf */; };
 		CA2468FD2A11224100BAAF3B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2468FC2A11224100BAAF3B /* WidgetKit.framework */; };
 		CA2468FF2A11224100BAAF3B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA2468FE2A11224100BAAF3B /* SwiftUI.framework */; };
 		CA2469022A11224100BAAF3B /* EzWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2469012A11224100BAAF3B /* EzWidgetBundle.swift */; };
@@ -87,6 +89,7 @@
 		3B25DEC92A07B7F400C5D1DD /* DragWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragWheel.swift; sourceTree = "<group>"; };
 		3B25DECB2A07B80700C5D1DD /* CoachMark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachMark.swift; sourceTree = "<group>"; };
 		3B4EAEF92A0E622700B045A2 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		6C89B4D12A11B40F00C943AE /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		CA2468F52A111DD300BAAF3B /* EZ-Apple-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EZ-Apple-Info.plist"; sourceTree = SOURCE_ROOT; };
 		CA2468FA2A11224100BAAF3B /* EzWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = EzWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA2468FC2A11224100BAAF3B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -185,6 +188,14 @@
 			path = DescriptionView;
 			sourceTree = "<group>";
 		};
+		6C89B4D02A11B3D400C943AE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6C89B4D12A11B40F00C943AE /* SF-Pro.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CA2468FB2A11224100BAAF3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +257,7 @@
 				3B4EAEF82A0E61E800B045A2 /* DescriptionView */,
 				1D9255E82A093880002C099A /* Model */,
 				CABAB7BF29FFD1EA00FA86A6 /* Assets.xcassets */,
+				6C89B4D02A11B3D400C943AE /* Fonts */,
 				CABAB7C129FFD1EA00FA86A6 /* Preview Content */,
 			);
 			path = EZ.Apple;
@@ -341,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA2469122A11240C00BAAF3B /* Assets.xcassets in Resources */,
+				6C89B4D32A11B40F00C943AE /* SF-Pro.ttf in Resources */,
 				CA2469082A11224200BAAF3B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CABAB7C329FFD1EA00FA86A6 /* Preview Assets.xcassets in Resources */,
+				6C89B4D22A11B40F00C943AE /* SF-Pro.ttf in Resources */,
 				CABAB7C029FFD1EA00FA86A6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

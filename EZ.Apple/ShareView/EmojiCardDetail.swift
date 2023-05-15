@@ -1,3 +1,4 @@
+
 //
 //  EmojiView.swift
 //  MC2_EZ
@@ -49,9 +50,8 @@ struct EmojiCardDetail: View {
                                         Spacer()
                                         
                                         Text(dateFormat.dateFormat)
-                                            .font(.system(size: 12))
+                                            .font(.system(size: 15))
                                             .foregroundColor(Color("ColorGray100"))
-                                        
                                             .padding(.bottom, 33)
                                             .matchedGeometryEffect(id: "dateFormat", in: namespace)
                                         
@@ -61,14 +61,14 @@ struct EmojiCardDetail: View {
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)
                                                 .blur(radius: 20)
-                                                .padding(.bottom, 30)
+                                                .padding(.bottom, 20)
                                                 .matchedGeometryEffect(id: "stateImageShadow", in: namespace)
                                             
                                             Image("ImgState\(number/10)")
                                                 .resizable()
                                                 .aspectRatio(contentMode: .fit)
                                                 .frame(width: 103)
-                                                .padding(.bottom, 30)
+                                                .padding(.bottom, 20)
                                                 .matchedGeometryEffect(id: "stateImage", in: namespace)
                                         }
                                         
@@ -81,6 +81,7 @@ struct EmojiCardDetail: View {
                                         Text("\(getSateMessage(number: number))")
                                             .font(.system(size: 14))
                                             .fontWeight(.medium)
+                                            .padding(.top, 5)
                                             .padding(.bottom, 30)
                                             .matchedGeometryEffect(id: "stateMessage", in: namespace)
                                     }
@@ -98,18 +99,17 @@ struct EmojiCardDetail: View {
                     ZStack(alignment: .topLeading) {
                         Rectangle()
                             .frame(maxWidth: .infinity)
-                            .frame(height: 200)
+                            .frame(height: 150)
                             .cornerRadius(15)
                             .foregroundColor(.white)
                             .overlay{
                                 TextEditor(text: $text)
-                                    .font(.custom("SF-Pro", size: 12))
+                                    .font(.custom("SF-Pro", size: 14))
                                     .frame(maxWidth: .infinity)
-                                    .frame(minHeight: 160)
+                                    .frame(height: 110)
                                     .padding(.horizontal, 30)
                                     .multilineTextAlignment(.leading)
                                     .lineSpacing(4)
-                                    .padding(.vertical, 30)
                             }
                         
                         
@@ -139,7 +139,7 @@ struct EmojiCardDetail: View {
                             .shadow(color: Color.black.opacity(0.2), radius: 8, y: 5)
                     }
                     .padding(.horizontal, 30)
-                    .padding(.top, 180)
+                    .padding(.top, 220)
                     
                 }
             }.ignoresSafeArea(.all)

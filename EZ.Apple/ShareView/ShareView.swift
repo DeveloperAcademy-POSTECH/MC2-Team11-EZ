@@ -1,3 +1,5 @@
+
+
 //
 //  ContentView.swift
 //  MC2_EZ
@@ -43,7 +45,7 @@ struct ShareView: View {
                             .contentShape(Rectangle())
                             .frame(height: 700, alignment: .bottom)
                             .onTapGesture {
-                                withAnimation(.spring(response: 0.5, dampingFraction: 0.5)){
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)){
                                     show.toggle()
                                 }
                             }

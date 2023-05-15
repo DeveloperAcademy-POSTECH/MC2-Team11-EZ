@@ -1,3 +1,5 @@
+
+
 //
 //  CalenderBox.swift
 //  EZ.Apple
@@ -90,7 +92,7 @@ struct CalenderBox: View {
                                     let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
                                     self.statements = statements
                                     
-                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.6)) {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
                                         isShowCal.toggle()
                                     }
                                 }, label: {
@@ -105,7 +107,7 @@ struct CalenderBox: View {
                             .padding(.horizontal, 20)
                     Spacer()
                 }
-            }             
+            }
     }
 }
 

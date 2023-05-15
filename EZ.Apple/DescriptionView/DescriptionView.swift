@@ -84,7 +84,6 @@ struct DescriptionView: View {
                         }
                     }
                     .frame(height: 360)
-                    
 
                     ZStack(alignment: .topLeading) {
                         Rectangle()
@@ -92,17 +91,17 @@ struct DescriptionView: View {
                             .frame(height: 200)
                             .cornerRadius(15)
                             .foregroundColor(.white)
-                            .overlay{
-                                Text(subItem.state_description ?? "")
-                                    .font(.custom("SF-Pro", size: 16))
-                                    .lineLimit(10)
-                                    .foregroundColor(Color("ColorGray100"))
-                                    .padding(.vertical, 20)
-                                    .padding(.horizontal, 30)
-                            }
+                            
+                        Text(subItem.state_description ?? "")
+                            .font(.custom("SF-Pro", size: 16))
+                            .lineLimit(10)
+                            .foregroundColor(Color("ColorGray100"))
+                            .padding(.vertical, 20)
+                            .padding(.horizontal, 30)
+                            
                         
                     }.padding(.horizontal, 20)
-                        .padding(.top, 30)
+                    .padding(.top, 30)
                 }
             }.ignoresSafeArea(.all)
             

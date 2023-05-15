@@ -24,7 +24,7 @@ struct EmojiCard: View {
             .overlay{
                 VStack(spacing: 0){
                     Text(dateFormat.dateFormat)
-                        .font(.system(size: 12))
+                        .font(.system(size: 16))
                         .foregroundColor(Color("ColorGray100"))
                         .padding(.bottom, 45.6)
                         .matchedGeometryEffect(id: "dateFormat", in: namespace)
@@ -49,15 +49,16 @@ struct EmojiCard: View {
                         
                     
                     Text("\(number)")
-                        .font(.system(size: 40))
+                        .font(.custom("SFPro-ExpandedBold", size: 40))
                         .fontWeight(.black)
                         .matchedGeometryEffect(id: "stateNumber", in: namespace)
+                        .padding(.bottom, 12)
                     
                     //Text("Feeling down")
                     Text(getSateMessage(number: number))
-                        .font(.system(size: 14))
+                        .font(.custom("SFPro-ExpandedBold", size: 14))
                         .fontWeight(.medium)
-                        .padding(.bottom, 38)
+                        .padding(.bottom, 16)
                         .matchedGeometryEffect(id: "stateMessage", in: namespace)
                     
                 }

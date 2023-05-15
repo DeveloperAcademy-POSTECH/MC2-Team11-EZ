@@ -19,6 +19,7 @@ struct DragWheel: View {
     @Binding var isTextToggle: Bool
     @Binding var numberOfRotations: Int
     @Binding var isShowImage: Bool
+    @Binding var isQuestionMark: Bool
     
     @State private var engine: CHHapticEngine?
     
@@ -97,6 +98,7 @@ struct DragWheel: View {
                         isShowText = true
                         isShowResultEmoji = false
                         isShowImage = false
+                        isQuestionMark = false
                     }
                     
                     isTextToggle.toggle()

@@ -24,6 +24,7 @@ struct MainView: View {
     
     @State private var isShowImage = true // 드래그 코치마크 상태 변수
     @State private var isShowDrage = true // 드래그 코치마크 애니메이션 상태 변수
+    @State private var isQuestionMark = true
     
     @State private var radius: CGFloat = 250 //휠 크기
     let dateFormat: DateFormat
@@ -47,7 +48,7 @@ struct MainView: View {
                             VStack(alignment: .leading) {
                                 
                                 Text(dateFormat.dateFormat)
-                                    .font(.system(size: 14))
+                                    .font(.system(size: 16))
                                     .foregroundColor(.gray)
                                 
                                 Image("UserName")
@@ -68,7 +69,7 @@ struct MainView: View {
                         } //: Hstack
                         .padding(.horizontal, 20)
                 
-                        SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji)
+                        SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji, isQuestionMark: $isQuestionMark)
                     }//: Vstack
 
                         Spacer()
@@ -79,7 +80,7 @@ struct MainView: View {
                     
                         Spacer()
                         
-                        DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage)
+                    DragWheel(number: $number, radius: $radius, handleRotation: $handleRotation, isShowEmoji: $isShowEmoji, isShowText: $isShowText, isShowResultEmoji: $isShowResultEmoji, isTextToggle: $isTextToggle, numberOfRotations: $numberOfRotations, isShowImage: $isShowImage, isQuestionMark: $isQuestionMark)
                     
                 } //: Vstack
                 .padding(.top, 30)

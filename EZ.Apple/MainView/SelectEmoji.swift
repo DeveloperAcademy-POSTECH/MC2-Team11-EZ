@@ -16,6 +16,7 @@ struct SelectEmoji: View {
     @Binding var number: Int
     @Binding var isTextToggle: Bool
     @Binding var isShowResultEmoji: Bool
+    @Binding var isQuestionMark: Bool
     
     // MARK: - Body
     var body: some View {
@@ -29,13 +30,13 @@ struct SelectEmoji: View {
                 .scaleEffect(isShowEmoji ? 1 : 0.5)
             
             Text("\(number)")
-                .font(.custom("molde-expanded-semibold", size: isTextToggle ? 42 : 50))
+                .font(.custom("SFPro-ExpandedBold", size: isTextToggle ? 42 : 50))
                 .foregroundColor(.white)
                 .shadow(color: Color.black.opacity(0.5), radius: 30, x: 0, y: 0)
                 .opacity(isShowText ? 1 : 0)
                 .scaleEffect(isShowText ? 1 : 0.5)
             
-            if isShowEmoji == false {
+            if isQuestionMark == false {
                 NavigationLink(destination: ShareView(number: $number, placeholder: "")) {
           
                         ZStack{
@@ -64,11 +65,9 @@ struct SelectEmoji: View {
                             
                             Text("\(getSateMessage(number: number))")
                                 .foregroundColor(.black)
-                                .font(.system(size: 14))
+                                .font(.custom("SFPro-ExpandedBold", size: 14))
                                 .padding(.top, 155)
                         }
-                        
-                     
 
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
@@ -88,6 +87,6 @@ struct SelectEmoji: View {
 // MARK: - Properties
 struct SelectEmoji_Previews: PreviewProvider {
     static var previews: some View {
-        SelectEmoji(isShowEmoji: .constant(true), isAnimating: .constant(false), isShowText: .constant(false), number: .constant(50), isTextToggle: .constant(true), isShowResultEmoji: .constant(false))
+        SelectEmoji(isShowEmoji: .constant(true), isAnimating: .constant(false), isShowText: .constant(false), number: .constant(50), isTextToggle: .constant(true), isShowResultEmoji: .constant(false), isQuestionMark: .constant(true))
     }
 }

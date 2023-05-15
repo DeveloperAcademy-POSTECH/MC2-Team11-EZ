@@ -55,9 +55,12 @@ struct ShareView: View {
             if show {
                 EmojiCardDetail(dateFormat: DateFormat(), namespace: namespace, number: number, show: $show)
                     .statusBarHidden(true)
+                    
             }
         }
         .navigationBarBackButtonHidden(shareShow ? true : false)
+        .navigationBarBackButtonHidden(show ? true : false)
+        
         .background(Image("ImgBackground")
         .ignoresSafeArea(.all)
         )

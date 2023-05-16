@@ -19,6 +19,11 @@ struct EmojiCardDetail: View {
     @State var text: String = ""
     @State var placeholder: String = "(How’s it going lah? (in 180 characters)"
     @Binding var show : Bool
+    @FocusState var focusValue: Int?
+    
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
     
     
     var body: some View {
@@ -75,7 +80,10 @@ struct EmojiCardDetail: View {
                                         Text("\(number)")
                                             .font(.system(size: 40))
                                             .fontWeight(.black)
+                                            .frame(width: 120)
                                             .matchedGeometryEffect(id: "stateNumber", in: namespace)
+                                            
+                                            
                                         
                                         
                                         Text("\(getSateMessage(number: number))")
@@ -83,6 +91,7 @@ struct EmojiCardDetail: View {
                                             .fontWeight(.medium)
                                             .padding(.top, 5)
                                             .padding(.bottom, 30)
+                                            .frame(width: 200)
                                             .matchedGeometryEffect(id: "stateMessage", in: namespace)
                                     }
                                     .offset(y: scrollY > 0 ? -scrollY : 0)
@@ -104,14 +113,15 @@ struct EmojiCardDetail: View {
                             .foregroundColor(.white)
                             .overlay{
                                 TextEditor(text: $text)
+                                    .focused($focusValue, equals: 1)
                                     .font(.custom("SF-Pro", size: 14))
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 110)
                                     .padding(.horizontal, 30)
                                     .multilineTextAlignment(.leading)
                                     .lineSpacing(4)
+                                    .onAppear(perform : UIApplication.shared.hideKeyboard)
                             }
-                        
                         
                         if text.isEmpty {
                             Text(placeholder)
@@ -123,6 +133,7 @@ struct EmojiCardDetail: View {
                         }
                     }.padding(.horizontal, 20)
                         .padding(.top, 20)
+                      
                     
                     
                     // 네비게이션 tag 추가

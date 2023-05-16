@@ -100,7 +100,7 @@ struct DragWheel: View {
                         isShowImage = false
                         isQuestionMark = false
                     }
-                    
+                   
                     isTextToggle.toggle()
                 
                     

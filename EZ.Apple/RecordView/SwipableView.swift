@@ -44,18 +44,30 @@ struct SwipableView: View {
                 VStack(spacing: 0){
                     // Handle
                     VStack(spacing: 0){
-                        VStack{
-                            Capsule()
-                                .foregroundColor(Color.black.opacity(0.5))
-                                .opacity(0.5)
-                                .frame(width: 49, height: 4)
-                                .padding(.top, 20)
-                                
+                        
+                        VStack(spacing: 0){
+                                Rectangle()
+                                    .frame(maxWidth: .infinity)
+                                    .foregroundColor(.white)
+                                    .overlay(){
+                                    VStack{
+                                        Capsule()
+                                            .foregroundColor(Color.black.opacity(0.5))
+                                            .opacity(0.5)
+                                            .frame(width: 49, height: 4)
+                                            .padding(.top, -24)
+                                            
+                                        
+                                        Text("\(statements.count / 6 + 6) Records")
+                                            .font(.system(size: 16, weight: .semibold))
+                                            .frame(maxWidth: .infinity)
+                                            .padding(.top, -16)
+                                        
+                                    }
+          
+                                }
+                                .frame(height: 80)
                             
-                            Text("\(statements.count / 6 + 6) Records")
-                                .font(.system(size: 16, weight: .semibold))
-                                .padding(.top, 10)
-                                
                         }
                         .gesture(dragGesture)
 
@@ -66,7 +78,7 @@ struct SwipableView: View {
                                     .frame(maxWidth: .infinity)
                                     .frame(height: 100)
                                     .cornerRadius(30)
-                                 .matchedGeometryEffect(id: "recordBackground", in: namespace)
+                                    .matchedGeometryEffect(id: "recordBackground", in: namespace)
                                     .shadow(color: Color.black.opacity(0.14), radius: 12, x: 2, y: 2)
                                     .overlay{
                                         VStack{
@@ -107,7 +119,7 @@ struct SwipableView: View {
                                     .padding(.bottom, 30)
                             }
                             .onTapGesture {
-                                withAnimation(.spring(response: 0.5, dampingFraction: 0.6)){
+                                withAnimation(.spring(response: 0.5, dampingFraction: 0.8)){
                                     isShowCal.toggle()
                                 }
                             }
@@ -183,6 +195,8 @@ struct SwipableView: View {
 struct SwipableView_Previews: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
-        SwipableView(pastWeekDateMonthDay: .constant("4.30"), selectedDateMonthDay: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), height: .constant(80), statements: .constant([Statement]()),  dateFormat : DateFormat(),  namespace: _namespace)
+//        SwipableView(pastWeekDateMonthDay: .constant("4.30"), selectedDateMonthDay: .constant("5.06"),  selectedDate: .constant(Date()), pastWeekDate:.constant(Date()), height: .constant(80), statements: .constant([Statement]()),  dateFormat : DateFormat(),  namespace: _namespace)
+        ChartView(dateFormat: DateFormat())
     }
 }
+

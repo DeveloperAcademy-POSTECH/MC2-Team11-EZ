@@ -38,37 +38,38 @@ struct SelectEmoji: View {
             
             if isQuestionMark == false {
                 NavigationLink(destination: ShareView(number: $number, placeholder: "")) {
-          
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 224, height: 224)
-                                .foregroundColor(.white)
-                                .cornerRadius(50)
-                                .opacity(0.4)
-                            
-                            Image("ImgState\(number / 10)")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 121.2, height: 132)
-                                .offset(y: isAnimating ? 5 : -5)
-                                .animation(.easeOut(duration: 1)
-                                    .repeatForever(), value: isAnimating)
-                                .blur(radius: 15)
-                            
-                            Image("ImgState\(number / 10)")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 121.2, height: 132)
-                                .offset(y: isAnimating ? 5 : -5)
-                                .animation(.easeOut(duration: 1)
-                                    .repeatForever(), value: isAnimating)
-                            
-                            Text("\(getSateMessage(number: number))")
-                                .foregroundColor(.black)
-                                .font(.custom("SFPro-ExpandedBold", size: 14))
-                                .padding(.top, 155)
-                        }
+                    
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 224, height: 224)
+                            .foregroundColor(.white)
+                            .cornerRadius(50)
+                            .opacity(0.4)
 
+                        
+                        Image("ImgState\(number / 10)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 121.2, height: 132)
+                            .offset(y: isAnimating ? 5 : -5)
+                            .animation(.easeOut(duration: 1)
+                                .repeatForever(), value: isAnimating)
+                            .blur(radius: 15)
+                        
+                        Image("ImgState\(number / 10)")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 121.2, height: 132)
+                            .offset(y: isAnimating ? 5 : -5)
+                            .animation(.easeOut(duration: 1)
+                                .repeatForever(), value: isAnimating)
+                        
+                        Text("\(getSateMessage(number: number))")
+                            .foregroundColor(.black)
+                            .font(.custom("SFPro-ExpandedBold", size: 14))
+                            .padding(.top, 155)
+                    }
+                    
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                             isAnimating = true
@@ -77,6 +78,7 @@ struct SelectEmoji: View {
                     .opacity(isShowResultEmoji ? 1 : 0)
                     .scaleEffect(isShowResultEmoji ? 1 : 0.5)
                 }
+                
             }
             }
         }

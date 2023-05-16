@@ -92,7 +92,7 @@ struct CalenderBox: View {
                                     let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)
                                     self.statements = statements
                                     
-                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.8)) {
+                                    withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
                                         isShowCal.toggle()
                                     }
                                 }, label: {

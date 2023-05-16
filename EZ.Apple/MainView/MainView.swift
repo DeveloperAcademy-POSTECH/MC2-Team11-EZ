@@ -68,6 +68,7 @@ struct MainView: View {
                             }
                         } //: Hstack
                         .padding(.horizontal, 20)
+                        .padding(.top, 5)
                 
                         SelectEmoji(isShowEmoji: $isShowEmoji, isAnimating: $isAnimating, isShowText: $isShowText, number: $number, isTextToggle: $isTextToggle, isShowResultEmoji: $isShowResultEmoji, isQuestionMark: $isQuestionMark)
                     }//: Vstack

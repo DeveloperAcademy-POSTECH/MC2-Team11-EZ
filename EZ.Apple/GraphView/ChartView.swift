@@ -11,7 +11,7 @@ struct ChartView: View {
     @State var selectedDate = Date()
     @State var pastWeekDate = Date().addingTimeInterval(-7 * 24 * 60 * 60) // 1주일 전의 날짜 구하기
 
-    @State var height: CGFloat = 80
+    @State var height: CGFloat = 110
     
     @State var selectedDateMonthDay : String = ""
     @State var pastWeekDateMonthDay : String = ""
@@ -108,7 +108,7 @@ struct ChartView: View {
             }
             // MARK: - Customizing Y-Axis Length
             .frame(height: 400)
-            .chartXScale(domain: pastWeekDate...selectedDate)
+            //.chartXScale(domain: (pastWeekDate - 7)...selectedDate)
             .chartYScale(domain: 0...110)
             .foregroundStyle(Gradient(colors: [.yellow, .orange, .pink]))
             
@@ -153,7 +153,7 @@ struct ChartView: View {
             }
             // MARK: - Customizing Y-Axis Length
             .frame(height: 400)
-            .chartXScale(domain: pastWeekDate...selectedDate)
+            //.chartXScale(domain: (pastWeekDate - 7)...selectedDate)
             .chartYScale(domain: 0...110)
             .onAppear() {
                 let statements = persistenceController.fetchStatementForDate(selectedDate: selectedDate, pastWeekDate: pastWeekDate)

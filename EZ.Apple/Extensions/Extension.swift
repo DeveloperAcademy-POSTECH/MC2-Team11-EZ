@@ -4,7 +4,7 @@
 //
 //  Created by seunghoria on 2023/05/07.
 //
-
+import Foundation
 import SwiftUI
 
 extension View {
@@ -72,4 +72,21 @@ extension Date {
 
 var backgroundGradient: LinearGradient {
     return LinearGradient(gradient: Gradient(colors: [Color.pink, Color.blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+}
+
+// MARK: - hide keyboard
+extension UIApplication {
+    func hideKeyboard() {
+        guard let window = windows.first else { return }
+        let tapRecognizer = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
+        tapRecognizer.cancelsTouchesInView = false
+        tapRecognizer.delegate = self
+        window.addGestureRecognizer(tapRecognizer)
+    }
+ }
+ 
+extension UIApplication: UIGestureRecognizerDelegate {
+    public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
 }

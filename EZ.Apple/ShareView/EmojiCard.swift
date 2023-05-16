@@ -51,7 +51,9 @@ struct EmojiCard: View {
                     Text("\(number)")
                         .font(.custom("SFPro-ExpandedBold", size: 40))
                         .fontWeight(.black)
+                        .frame(width: 120)
                         .matchedGeometryEffect(id: "stateNumber", in: namespace)
+                        
                         .padding(.bottom, 12)
                     
                     //Text("Feeling down")
@@ -59,6 +61,7 @@ struct EmojiCard: View {
                         .font(.custom("SFPro-ExpandedBold", size: 14))
                         .fontWeight(.medium)
                         .padding(.bottom, 16)
+                        .frame(width: 200)
                         .matchedGeometryEffect(id: "stateMessage", in: namespace)
                     
                 }

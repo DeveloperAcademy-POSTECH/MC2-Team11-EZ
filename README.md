@@ -15,7 +15,10 @@
 <div> 안녕하세여 </div>
 
 <h2>🧐 Preview</h2>
-<img src="https://user-images.githubusercontent.com/20789760/235419131-b47ccaeb-b63f-4ac2-9acc-bb757f37c905.png" />
+<img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team11-EZ/assets/20789760/18ea08c9-47ed-44fe-8053-f664b89a1729" />
+<br>
+<img src="https://github.com/DeveloperAcademy-POSTECH/MC2-Team11-EZ/assets/20789760/c41bc884-258d-42fd-a410-83755d9af11c" />
+
 <div align="center">
   ➿
   상세설명 작성예정
